@@ -771,7 +771,7 @@
         });
 
         // ----------------------------------------------------
-        // 3. CHATBOT WIDGET TOGGLE
+        // 3. CHATBOT WIDGET TOGGLE & COPY
         // ----------------------------------------------------
         const toggleBtn = document.getElementById("chat-toggle");
         const chatbox = document.getElementById("chatbox");
@@ -794,6 +794,17 @@
                 setTimeout(() => chatbox.style.display = "none", 300);
             }
         };
+
+        if (copyChatBtn) {
+            copyChatBtn.onclick = () => {
+                const textToCopy = Array.from(messages.querySelectorAll('.bubble'))
+                    .map(b => b.innerText)
+                    .join('\n\n');
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('Chat history copied to clipboard!');
+                });
+            };
+        }
 
         // ----------------------------------------------------
         // 4. GEMINI AI INTEGRATION WITH CONVERSATION HISTORY
