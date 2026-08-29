@@ -319,8 +319,8 @@
             position: fixed;
             bottom: 100px;
             left: 30px;
-            width: 350px;
-            height: 450px;
+            width: 360px;
+            height: 480px;
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.25);
@@ -370,10 +370,10 @@
         }
 
         .bubble {
-            max-width: 80%;
+            max-width: 85%;
             padding: 10px 14px;
             border-radius: 14px;
-            font-size: 14px;
+            font-size: 13.5px;
             line-height: 1.4;
             word-wrap: break-word;
         }
@@ -660,7 +660,7 @@
         <!-- ASSISTANT PAGE -->
         <section id="page-assistant" class="page">
             <h2 class="page-title">ECT Assistant</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #555;">Meet our automated assistant! Ask any questions regarding English Club of Thursina using our interactive chat widget.</p>
+            <p style="text-align: center; margin-bottom: 30px; color: #555;">Meet our automated assistant! Ask any questions regarding English Club of Thursina or request basic tenses explanations directly.</p>
             
             <div class="grid-container">
                 <div class="card">
@@ -675,9 +675,9 @@
                     <p>Ask about ECT activities, vision, mission, schedules, and club features anytime.</p>
                 </div>
                 <div class="card">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                    <h3>Learning Resources</h3>
-                    <p>Access downloadable guides, practice prompts, and club documentation directly.</p>
+                    <i class="fa-solid fa-book"></i>
+                    <h3>Tenses Materials</h3>
+                    <p>Type keywords like <strong>"present tense"</strong>, <strong>"past tense"</strong>, or <strong>"future tense"</strong> to learn formulas & 6 sentence examples!</p>
                 </div>
             </div>
         </section>
@@ -742,7 +742,7 @@
         </div>
         <div class="messages" id="messages">
             <div class="msg-wrapper bot-wrapper">
-                <div class="bubble bot"><strong>ECT Bot:</strong> Hi! Ask me about English Club of Thursina 👋</div>
+                <div class="bubble bot"><strong>ECT Bot:</strong> Hi! Ask me about English Club of Thursina or basic tenses explanations 👋 (Try typing: <strong>present tense</strong>, <strong>past tense</strong>, or <strong>future tense</strong>)</div>
             </div>
         </div>
         <div class="chat-input">
@@ -806,13 +806,13 @@
             }
         };
 
-        // 3. KNOWLEDGE BASE (LENGKAP ID & EN)
+        // 3. KNOWLEDGE BASE (INFO ECT & PENJELASAN TENSES DENGAN RUMUS & 6 CONTOH)
         const knowledgeID = {
-            "halo hai assalamualaikum sapa": "Halo! Selamat datang di English Club of Thursina (ECT) 👋 Ada yang bisa dibantu?",
+            "halo hai assalamualaikum sapa": "Halo! Selamat datang di English Club of Thursina (ECT) 👋 Ada yang bisa dibantu? Kamu bisa bertanya seputar ECT atau penjelasan tenses dasar!",
             "ect singkatan arti kepanjangan": "ECT adalah singkatan dari English Club of Thursina.",
             "english club thursina organisasi": "English Club of Thursina adalah organisasi sekolah yang berfokus pada pengembangan kemampuan bahasa Inggris siswa.",
             "tahun berdiri kapan sejarah": "English Club of Thursina resmi berdiri pada bulan September 2025 sebagai wadah peningkatan kemampuan bahasa Inggris.",
-            "pembina pembimbing penanggung jawab guru": "Pembina ECT Thursina adalah Ust. Novirahman dan dibantu oleh tim English Club Of Thursina.",
+            "pembina pembimbing penanggung jawab guru": "Pembina ECT Thursina adalah Ust. Ismail dan dibantu oleh tim pengajar/mentor bahasa Inggris Thursina.",
             "ketua pemimin president leader": "Ketua ECT saat ini dipimpin oleh Ismail Syafiq bersama jajaran pengurus aktif.",
             "wakil sekretaris bendahara pengurus struktur": "Struktur pengurus ECT: Pembina (Ust. Ismail), Ketua (Ismail Syafiq), Wakil Ketua 1 (Rafi Naufal Dzakwan), Wakil Ketua 2 (Rafi Putra Risnanda), Sekretaris (Prabu), serta 17 anggota aktif.",
             "visi tujuan": "Visi ECT adalah membangun komunitas belajar bahasa Inggris yang aktif, kreatif, percaya diri, dan berdaya saing global.",
@@ -830,12 +830,22 @@
             "jadwal kapan latihan hari jam": "Latihan rutin diadakan berkala sesuai jadwal ekstrakurikuler/klub yang ditetapkan pengurus setiap pekannya.",
             "lokasi dimana tempat venue": "Seluruh kegiatan rutin ECT dilaksanakan di area kampus Thursina YBM PLN Bogor Boarding School.",
             "kontak narahubung instagram hubungi whatsapp email": "Anda bisa menghubungi via WA (+62 878-7288-6162), email (ismail@ponpesthursina.id), atau melalui menu Contact & Feedback di web ini.",
+            
+            // TENSES MATERI KNOWLEDGE BASE (PENJELASAN + RUMUS + 6 CONTOH KALIMAT)
+            "tenses grammar rumus dasar": "Tenses dasar terdiri dari 3 bentuk utama:\n1. **Simple Present Tense** (kebiasaan/fakta)\n2. **Simple Past Tense** (kejadian masa lalu)\n3. **Simple Future Tense** (rencana masa depan)\n\nKetik nama tenses di atas untuk melihat rumus dan 6 contoh kalimat lengkapnya!",
+
+            "present simple present": "📘 **Simple Present Tense**\nDigunakan untuk menyatakan fakta umum atau kebiasaan sehari-hari.\n\n**Rumus:**\n(+) S + Verb-1 (-s/-es) + O\n(-) S + do/does + not + Verb-1 + O\n(?) Do/Does + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. She drinks milk every morning. *(Dia minum susu setiap pagi.)*\n2. They study English on Monday. *(Mereka belajar bahasa Inggris pada hari Senin.)*\n3. The sun rises in the east. *(Matahari terbit dari timur.)*\n4. He does not play football. *(Dia tidak bermain sepak bola.)*\n5. I do not like spicy food. *(Saya tidak suka makanan pedas.)*\n6. Do you live in Bogor? *(Apakah kamu tinggal di Bogor?)*",
+
+            "past simple past": "📕 **Simple Past Tense**\nDigunakan untuk menyatakan kejadian yang sudah terjadi di masa lalu.\n\n**Rumus:**\n(+) S + Verb-2 + O\n(-) S + did + not + Verb-1 + O\n(?) Did + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. I visited the library yesterday. *(Saya mengunjungi perpustakaan kemarin.)*\n2. She bought a new book last night. *(Dia membeli buku baru tadi malam.)*\n3. They won the competition last month. *(Mereka memenangkan kompetisi bulan lalu.)*\n4. He did not watch the movie. *(Dia tidak menonton film tersebut.)*\n5. We did not come to the party. *(Kami tidak datang ke pesta itu.)*\n6. Did you finish your homework? *(Apakah kamu sudah menyelesaikan PR-mu?)*",
+
+            "future simple future": "📗 **Simple Future Tense**\nDigunakan untuk menyatakan rencana atau kejadian di masa depan.\n\n**Rumus:**\n(+) S + will + Verb-1 + O\n(-) S + will + not + Verb-1 + O\n(?) Will + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. I will join the English Club tomorrow. *(Saya akan bergabung dengan English Club besok.)*\n2. She will present her research next week. *(Dia akan mempresentasikan penelitiannya minggu depan.)*\n3. They will travel to Jakarta soon. *(Mereka akan bepergian ke Jakarta segera.)*\n4. He will not attend the meeting. *(Dia tidak akan menghadiri rapat tersebut.)*\n5. We will not give up easily. *(Kami tidak akan menyerah dengan mudah.)*\n6. Will you come to my house? *(Apakah kamu akan datang ke rumahku?)*",
+
             "terima kasih makasih thanks": "Sama-sama! Senang bisa membantu 😊",
             "bye dadah duluan dadag": "Sampai jumpa lagi! Have a great day 👋"
         };
 
         const knowledgeEN = {
-            "hello hi greeting hey": "Hello! Welcome to English Club of Thursina (ECT) 👋 How can I help you today?",
+            "hello hi greeting hey": "Hello! Welcome to English Club of Thursina (ECT) 👋 Feel free to ask about our club or basic tenses explanations!",
             "ect stand meaning full name": "ECT stands for English Club of Thursina.",
             "established history founded": "English Club of Thursina was established in September 2025 to foster students' English skills.",
             "advisor teacher supervisor pembina": "The main advisor of ECT is Ust. Novirahman, supported by English Club of Thursina.",
@@ -856,6 +866,7 @@
             "schedule when day training time": "Routine sessions take place according to the weekly club schedule set by the committee.",
             "location where place venue": "All ECT regular activities take place within the Thursina YBM PLN Bogor Boarding School campus.",
             "contact instagram social media whatsapp email": "Reach us via WhatsApp (+62 878-7288-6162), email (ismail@ponpesthursina.id), or via the Contact page.",
+
             "thanks thank you appreciate": "You're welcome! Happy to help! 😊",
             "bye goodbye see you": "Goodbye! Have a wonderful day 👋"
         };
@@ -880,7 +891,7 @@
                 }
             }
 
-            return "I'm sorry, I didn't quite understand that. Please try asking about ECT's vision, structure, projects, or schedule! / Maaf, saya belum memahami pertanyaan tersebut. Silakan tanyakan seputar visi, struktur, proyek, atau jadwal ECT!";
+            return "Maaf, saya belum memahami pertanyaan tersebut. Coba tanyakan seputar ECT atau ketik nama tenses seperti **'present tense'**, **'past tense'**, atau **'future tense'**!";
         }
 
         function appendMessage(sender, text, isUser) {
@@ -889,7 +900,11 @@
 
             const bubble = document.createElement("div");
             bubble.className = `bubble ${isUser ? 'user' : 'bot'}`;
-            bubble.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            // Mengubah format bold (**) dan line break (\n) agar rapi di bubble chat
+            let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            formattedText = formattedText.replace(/\n/g, '<br>');
+
+            bubble.innerHTML = `<strong>${sender}:</strong><br>${formattedText}`;
 
             wrapper.appendChild(bubble);
             messages.appendChild(wrapper);
@@ -906,7 +921,7 @@
             setTimeout(() => {
                 const botReply = findResponse(text);
                 appendMessage("ECT Bot", botReply, false);
-            }, 400);
+            }, 300);
         }
 
         sendBtn.onclick = handleSend;
