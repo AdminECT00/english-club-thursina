@@ -209,6 +209,17 @@
             letter-spacing: 1px;
         }
 
+        /* Style Foto Profil Pengurus / Pembina */
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--primary-color);
+            display: block;
+        }
+
         .member-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -229,18 +240,15 @@
             transform: translateY(-3px);
         }
 
+        /* Style Foto Profil Anggota */
         .member-avatar {
-            width: 45px;
-            height: 45px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: var(--primary-color);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: cover;
             margin: 0 auto 10px;
-            font-weight: 700;
-            font-size: 0.85rem;
+            border: 2px solid var(--primary-color);
+            display: block;
         }
 
         /* Form Styles */
@@ -462,7 +470,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo" onclick="switchPage('home')">
             <i class="fa-solid fa-graduation-cap"></i> ECT Thursina
@@ -480,10 +487,8 @@
         </ul>
     </nav>
 
-    <!-- HALAMAN - HALAMAN -->
     <main>
         
-        <!-- HOME PAGE -->
         <section id="page-home" class="page active-page">
             <div class="hero">
                 <h1>English Club of Thursina</h1>
@@ -512,59 +517,53 @@
             </div>
         </section>
 
-        <!-- STRUCTURE PAGE -->
         <section id="page-structure" class="page">
             <h2 class="page-title">Organizational Structure</h2>
             
-            <!-- Advisor -->
             <div class="structure-section">
                 <div class="role-title"><i class="fa-solid fa-user-tie"></i> Club Advisor</div>
                 <div class="grid-container" style="max-width: 350px; margin: 0 auto;">
                     <div class="card">
-                        <i class="fa-solid fa-user-shield"></i>
+                        <img src="https://i.pravatar.cc/150?img=68" alt="Mr. Novi Rahman" class="profile-img">
                         <h3>Mr. Novi Rahman</h3>
                         <p style="color: var(--primary-color); font-weight: 600;">Pembina</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Executives -->
             <div class="structure-section" style="margin-top: 40px;">
                 <div class="role-title"><i class="fa-solid fa-sitemap"></i> Executive Officers</div>
                 <div class="grid-container">
                     <div class="card">
-                        <i class="fa-solid fa-user-gear"></i>
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Ismail Syafiq" class="profile-img">
                         <h3>Ismail Syafiq</h3>
                         <p style="color: var(--primary-color); font-weight: 600;">Ketua (President)</p>
                     </div>
                     <div class="card">
-                        <i class="fa-solid fa-user-check"></i>
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Rafi Putra Risnanda" class="profile-img">
                         <h3>Rafi Putra Risnanda</h3>
                         <p style="color: var(--primary-color); font-weight: 600;">Wakil I (Vice President I)</p>
                     </div>
                     <div class="card">
-                        <i class="fa-solid fa-user-check"></i>
-                        <h3>Rafi Naufal Dzakwan </h3>
+                        <img src="https://i.pravatar.cc/150?img=13" alt="Rafi Naufal Dzakwan" class="profile-img">
+                        <h3>Rafi Naufal Dzakwan</h3>
                         <p style="color: var(--primary-color); font-weight: 600;">Wakil II (Vice President II)</p>
                     </div>
                     <div class="card">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <img src="https://i.pravatar.cc/150?img=14" alt="Prabu Faqih Wibowo" class="profile-img">
                         <h3>Prabu Faqih Wibowo</h3>
                         <p style="color: var(--primary-color); font-weight: 600;">Sekretaris (Secretary)</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 20 Members -->
             <div class="structure-section" style="margin-top: 40px;">
                 <div class="role-title"><i class="fa-solid fa-users"></i> Active Members (20 Anggota)</div>
                 <div class="member-grid" id="members-container">
-                    <!-- 20 Anggota dirender secara dinamis oleh JavaScript -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- PROJECT PAGE -->
         <section id="page-project" class="page">
             <h2 class="page-title">Great Projects</h2>
             <div class="grid-container">
@@ -586,7 +585,6 @@
             </div>
         </section>
 
-        <!-- ASSISTANT PAGE -->
         <section id="page-assistant" class="page">
             <h2 class="page-title">ECT Assistant</h2>
             <p style="text-align: center; margin-bottom: 30px; color: #555;">Meet our automated assistant! Ask any questions regarding English Club of Thursina using our interactive chat widget.</p>
@@ -611,7 +609,6 @@
             </div>
         </section>
 
-        <!-- CONTACT PAGE -->
         <section id="page-contact" class="page">
             <h2 class="page-title">Contact Us</h2>
             <div class="grid-container">
@@ -633,7 +630,6 @@
             </div>
         </section>
 
-        <!-- FEEDBACK PAGE -->
         <section id="page-feedback" class="page">
             <h2 class="page-title">Send Us Feedback</h2>
             <div class="form-container">
@@ -657,12 +653,10 @@
 
     </main>
 
-    <!-- WHATSAPP FLOATING BUTTON -->
     <a href="https://wa.me/6287872886162" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- CHATBOT FLOATING WIDGET -->
     <button id="chat-toggle" title="Open ECT Chatbot">💬</button>
 
     <div class="chatbox" id="chatbox">
@@ -680,221 +674,25 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 English Club of Thursina. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // GENERATE 20 ANGGOTA DENGAN JAVASCRIPT
+        // DATA ANGGOTA + FOTO (Dapat diubah URL 'photo' ke path gambar lokal, misal: 'images/member1.jpg')
         const memberList = [
-            "Abdullah", "Bilal", "Daniel", "Ebrahim", "Fatimah",
-            "Hassan", "Ibrahim", "Khadijah", "Luqman", "Maryam",
-            "Naufal", "Omar", "Qasim", "Rania", "Zayd",
-            "Ahmad", "Aisha", "Hamza", "Yusuf", "Zainab"
-        ];
-
-        const membersContainer = document.getElementById('members-container');
-        if (membersContainer) {
-            memberList.forEach((name, index) => {
-                const card = document.createElement('div');
-                card.className = 'card-member';
-                card.innerHTML = `
-                    <div class="member-avatar">M${index + 1}</div>
-                    <h4 style="font-size: 0.95rem; font-weight: 600;">${name}</h4>
-                    <p style="font-size: 0.8rem; color: #666;">Member</p>
-                `;
-                membersContainer.appendChild(card);
-            });
-        }
-
-        // 1. NAVIGATION (SINGLE PAGE APPLICATION)
-        function switchPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active-page'));
-
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if(targetPage) targetPage.classList.add('active-page');
-
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            const activeLink = Array.from(navLinks).find(link => 
-                link.getAttribute('onclick').includes(pageId)
-            );
-            if(activeLink) activeLink.classList.add('active');
-
-            document.querySelector('.nav-links').classList.remove('show');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinksContainer = document.querySelector('.nav-links');
-        mobileMenu.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('show');
-        });
-
-        // 2. CHATBOT WIDGET TOGGLE
-        const toggleBtn = document.getElementById("chat-toggle");
-        const chatbox = document.getElementById("chatbox");
-        const messages = document.getElementById("messages");
-        const input = document.getElementById("input");
-        const sendBtn = document.getElementById("send-btn");
-
-        function openChatbot() {
-            chatbox.style.display = "flex";
-            setTimeout(() => chatbox.classList.add("show"), 10);
-            input.focus();
-        }
-
-        toggleBtn.onclick = () => {
-            if (chatbox.style.display === "none" || chatbox.style.display === "") {
-                openChatbot();
-            } else {
-                chatbox.classList.remove("show");
-                setTimeout(() => chatbox.style.display = "none", 300);
-            }
-        };
-
-        // 3. KNOWLEDGE BASE CHATBOT
-        const knowledgeID = {
-            "halo hai assalamualaikum": "Halo! Selamat datang di English Club of Thursina (ECT) 👋 Ada yang bisa dibantu?",
-            "ect singkatan arti": "ECT adalah singkatan dari English Club of Thursina.",
-            "english club thursina organisasi": "English Club of Thursina adalah organisasi yang berfokus pada pengembangan kemampuan bahasa Inggris siswa.",
-            "tahun berdiri kapan sejarah": "English Club of Thursina berdiri pada bulan September 2025 sebagai wadah kemampuan bahasa Inggris.",
-            "visi tujuan": "Visi ECT adalah membangun komunitas belajar bahasa Inggris yang aktif, kreatif, dan percaya diri.",
-            "misi program kerja": "Misi ECT meliputi pelatihan bahasa Inggris, diskusi, praktik berbicara, dan pengembangan keterampilan komunikasi.",
-            "manfaat fungsi untung": "Anggota ECT dapat meningkatkan kemampuan speaking, listening, reading, dan writing.",
-            "kegiatan acara ngapain": "Kegiatan ECT meliputi discussion, speech, debate, storytelling, games, dan kompetisi bahasa Inggris.",
-            "speech pidato": "Speech adalah latihan berbicara di depan umum menggunakan bahasa Inggris.",
-            "debate debat argumen": "Debate merupakan kegiatan beradu argumen menggunakan bahasa Inggris.",
-            "storytelling cerita": "Storytelling adalah kegiatan menyampaikan cerita dalam bahasa Inggris.",
-            "ketua pengurus struktur organisasi pembina wakil": "Struktur ECT terdiri dari 1 Pembina, 1 Ketua, 2 Wakil, 1 Sekretaris, dan 20 Anggota aktif.",
-            "anggota siapa ikut join syarat": "Keanggotaan ECT terbuka bagi seluruh siswa Thursina yang berminat belajar bahasa Inggris.",
-            "daftar cara registrasi": "Pendaftaran anggota baru dapat dilakukan saat masa rekrutmen dibuka. Silakan hubungi pengurus untuk info lanjut.",
-            "jadwal kapan latihan hari": "Kegiatan dan latihan ECT dilaksanakan sesuai jadwal yang telah ditetapkan oleh pengurus terbaru.",
-            "prestasi lomba kompetisi": "ECT aktif mendukung dan mengirimkan anggotanya untuk mengikuti berbagai kompetisi bahasa Inggris.",
-            "lokasi dimana tempat": "Kegiatan ECT dilaksanakan di lingkungan sekolah Thursina.",
-            "kontak narahubung instagram hubungi": "Silakan cek akun Instagram resmi ECT atau hubungi pengurus langsung untuk informasi lebih detail.",
-            "terima kasih makasih thanks": "Sama-sama! Senang bisa membantu 😊",
-            "bye dadah duluan": "Sampai jumpa lagi! Have a great day 👋"
-        };
-
-        const knowledgeEN = {
-            "hello hi greeting": "Hello! Welcome to English Club of Thursina (ECT) 👋 How can I help you today?",
-            "ect stand meaning": "ECT stands for English Club of Thursina.",
-            "established history found": "English Club of Thursina was established in September 2025 to help students improve their English skills.",
-            "vision purpose objective": "Our vision is to build an active, creative, and confident English learning community.",
-            "mission program focus": "Our mission includes training, discussions, speaking practice, and communication development.",
-            "benefit advantage skills": "Members can improve speaking, listening, reading, and writing skills.",
-            "activities agenda game": "Our activities include discussions, speeches, debates, storytelling, games, and competitions.",
-            "speech public speaking": "Speech is public speaking practice using English.",
-            "debate argument": "Debate is an activity where members exchange arguments in English.",
-            "storytelling story": "Storytelling is the art of telling stories in English.",
-            "structure leader committee advisor vice": "ECT structure consists of 1 Advisor, 1 President, 2 Vice Presidents, 1 Secretary, and 20 Members.",
-            "member join student eligibility": "ECT membership is open to all students interested in learning English.",
-            "register sign recruitment open": "You can register when the recruitment period is open through the committee.",
-            "schedule when day training time": "ECT activities and training sessions are conducted according to the official schedule.",
-            "competition achievement contest": "ECT encourages and supports members to participate in English competitions.",
-            "location where place ground": "ECT is based in the Thursina environment.",
-            "contact instagram social media": "Please contact the ECT committee or check our official Instagram for further information.",
-            "thanks thank you appreciate": "You're welcome! Happy to help! 😊",
-            "bye goodbye see you": "Goodbye! Have a wonderful day 👋"
-        };
-
-        const stopwords = ["kak", "dong", "sih", "yang", "mau", "tanya", "bisa", "itu", "ini", "ada", "apa", "apakah", "bagaimana", "gimana", "kalo", "kalau", "buat", "untuk", "the", "a", "an", "is", "are", "about", "how", "to", "do", "you"];
-
-        function detectLanguage(wordsArray) {
-            const engKeywords = ["hello", "hi", "purpose", "vision", "mission", "activities", "established", "join", "how", "thanks", "thank", "bye", "where", "when", "what", "structure"];
-            const idKeywords = ["halo", "hai", "assalamualaikum", "visi", "misi", "tujuan", "kegiatan", "daftar", "jadwal", "latihan", "ketua", "pengurus", "lomba", "dimana", "kapan", "terima", "makasih", "struktur", "pembina"];
-            
-            let scoreEN = 0;
-            let scoreID = 0;
-            
-            wordsArray.forEach(word => {
-                if (engKeywords.includes(word)) scoreEN++;
-                if (idKeywords.includes(word)) scoreID++;
-            });
-
-            return scoreEN > scoreID ? "en" : "id";
-        }
-
-        function handleSendMessage() {
-            const userText = input.value.trim();
-            if (userText === "") return;
-
-            addMessage("You", userText, "user");
-            input.value = "";
-            replyBot(userText);
-        }
-
-        input.addEventListener("keypress", e => {
-            if (e.key === "Enter") handleSendMessage();
-        });
-        sendBtn.addEventListener("click", handleSendMessage);
-
-        function addMessage(sender, text, cls) {
-            const wrapper = document.createElement("div");
-            wrapper.className = `msg-wrapper ${cls}-wrapper`;
-
-            const bubble = document.createElement("div");
-            bubble.className = `bubble ${cls}`;
-            bubble.innerHTML = `<strong>${sender}:</strong> ${text}`;
-
-            wrapper.appendChild(bubble);
-            messages.appendChild(wrapper);
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        function replyBot(inputText) {
-            const cleanText = inputText.toLowerCase().replace(/[^a-zA-Z0-9\s]/g, "");
-            const inputWords = cleanText.split(/\s+/);
-            const filteredWords = [...new Set(inputWords.filter(word => !stopwords.includes(word)))];
-
-            if (filteredWords.length === 0 || filteredWords[0] === "") {
-                const langDefault = detectLanguage(inputWords);
-                const defaultReply = langDefault === "en" 
-                    ? "I'm sorry, could you please be more specific? 😊" 
-                    : "Mohon maaf, bisa diperjelas lagi pertanyaannya? 😊";
-                
-                setTimeout(() => addMessage("ECT Bot", defaultReply, "bot"), 500);
-                return;
-            }
-
-            const lang = detectLanguage(filteredWords);
-            const brain = lang === "en" ? knowledgeEN : knowledgeID;
-
-            let bestReply = lang === "en"
-                ? "Sorry, I am not sure about that. Can you rephrase or ask the ECT committee? 😊"
-                : "Maaf, saya belum memahami maksudnya. Coba gunakan kata kunci lain atau hubungi pengurus ECT ya! 😊";
-
-            let highestScore = 0;
-
-            for (let keyGroup in brain) {
-                const keys = keyGroup.split(" ");
-                let currentScore = 0;
-
-                filteredWords.forEach(word => {
-                    keys.forEach(key => {
-                        if (key === word) {
-                            currentScore += 3; 
-                        } else if (word.length > 3 && (word.includes(key) || key.includes(word))) {
-                            currentScore += 1; 
-                        }
-                    });
-                });
-
-                if (currentScore > highestScore) {
-                    highestScore = currentScore;
-                    bestReply = brain[keyGroup];
-                }
-            }
-
-            setTimeout(() => {
-                addMessage("ECT Bot", bestReply, "bot");
-            }, 500);
-        }
-    </script>
-</body>
-</html>
+            { name: "Abdullah", photo: "https://i.pravatar.cc/150?img=33" },
+            { name: "Bilal", photo: "https://i.pravatar.cc/150?img=15" },
+            { name: "Daniel", photo: "https://i.pravatar.cc/150?img=18" },
+            { name: "Ebrahim", photo: "https://i.pravatar.cc/150?img=53" },
+            { name: "Fatimah", photo: "https://i.pravatar.cc/150?img=47" },
+            { name: "Hassan", photo: "https://i.pravatar.cc/150?img=59" },
+            { name: "Ibrahim", photo: "https://i.pravatar.cc/150?img=60" },
+            { name: "Khadijah", photo: "https://i.pravatar.cc/150?img=49" },
+            { name: "Luqman", photo: "https://i.pravatar.cc/150?img=65" },
+            { name: "Maryam", photo: "https://i.pravatar.cc/150?img=44" },
+            { name: "Naufal", photo: "https://i.pravatar.cc/150?img=67" },
+            { name: "Omar", photo: "https://i.pravatar.cc/150?img=69" },
+            { name: "Qasim", photo: "https://i.pravatar.cc/150?img=56" },
+            { name: "Rania", photo: "https://i.pravatar.cc/150?img=45" },
+            { name: "Zayd", photo: "https://i.pravatar.cc/150?img
