@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Club of Thursina</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Struktur Organisasi - English Club of Thursina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #0b5ed7;
-            --dark-color: #212529;
-            --light-color: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --accent: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
 
@@ -26,749 +29,290 @@
         }
 
         body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding-bottom: 60px;
         }
 
-        /* Navigation */
-        .navbar {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Page Container System */
-        main {
-            margin-top: 70px;
-            flex: 1;
-        }
-
-        .page {
-            display: none;
-            padding: 60px 8%;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .page.active-page {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            border-radius: 15px;
-            padding: 100px 20px;
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            color: var(--white);
             margin-bottom: 40px;
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-        }
-
-        .hero blockquote {
-            font-style: italic;
-            font-size: 1.2rem;
-            margin: 0 auto 25px auto;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px;
-            border-left: 4px solid var(--primary-color);
-            border-radius: 4px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Layout UI Common */
-        .page-title {
-            text-align: center;
+        header h1 {
             font-size: 2.2rem;
-            margin-bottom: 40px;
-            position: relative;
+            font-weight: 700;
         }
 
-        .page-title::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 2px;
+        header p {
+            color: #93c5fd;
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .level {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 25px;
+            margin-bottom: 35px;
         }
 
         .card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: var(--shadow);
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            width: 240px;
             text-align: center;
+            box-shadow: var(--shadow);
             transition: var(--transition);
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+        .card.pembina { border-top: 5px solid #8b5cf6; }
+        .card.ketua { border-top: 5px solid #ef4444; }
+        .card.wakil { border-top: 5px solid #f59e0b; }
+        .card.sekretaris { border-top: 5px solid #10b981; }
+        .card.anggota { border-top: 5px solid #3b82f6; }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e2e8f0;
             margin-bottom: 15px;
         }
 
-        /* Form Styles */
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
+        .role-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
             margin-bottom: 8px;
+        }
+
+        .badge-pembina { background: #f3e8ff; color: #6b21a8; }
+        .badge-ketua { background: #fee2e2; color: #991b1b; }
+        .badge-wakil { background: #fef3c7; color: #92400e; }
+        .badge-sekretaris { background: #d1fae5; color: #065f46; }
+        .badge-anggota { background: #dbeafe; color: #1e40af; }
+
+        .member-name {
+            font-size: 1rem;
             font-weight: 600;
         }
 
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
+        .member-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
-        /* Floating WhatsApp Button (Kanan Bawah) */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50px;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            text-decoration: none;
-            transition: var(--transition);
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* STYLES FLOATING CHATBOT (Kiri Bawah) */
-        #chat-toggle {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #chat-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .chatbox {
-            position: fixed;
-            bottom: 100px;
-            left: 30px;
-            width: 350px;
-            height: 450px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
-            display: none;
-            flex-direction: column;
-            z-index: 999;
-            overflow: hidden;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        .chatbox.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .chat-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            background: #f9f9fc;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .msg-wrapper {
-            display: flex;
-            width: 100%;
-        }
-        .msg-wrapper.user-wrapper {
-            justify-content: flex-end;
-        }
-        .msg-wrapper.bot-wrapper {
-            justify-content: flex-start;
-        }
-
-        .bubble {
-            max-width: 80%;
-            padding: 10px 14px;
-            border-radius: 14px;
-            font-size: 14px;
-            line-height: 1.4;
-            word-wrap: break-word;
-        }
-        .bot {
-            background: #eef0f8;
-            color: #333;
-            border-top-left-radius: 2px;
-        }
-        .user {
-            background: var(--primary-color);
-            color: white;
-            border-top-right-radius: 2px;
-        }
-
-        .chat-input {
-            padding: 12px;
-            border-top: 1px solid #ddd;
-            display: flex;
-            gap: 8px;
-            background: #fff;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 8px 14px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
-
-        .chat-input input:focus {
-            border-color: var(--primary-color);
-        }
-
-        .chat-input button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: var(--white);
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: var(--shadow);
-                display: none;
-            }
-            .nav-links.show { display: flex; }
-            .hero h1 { font-size: 2rem; }
-            .chatbox {
-                width: 90%;
-                left: 5%;
-                bottom: 90px;
-            }
-        }
+        .members-grid .card { width: 100%; }
+        .members-grid .profile-img { width: 80px; height: 80px; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo" onclick="switchPage('home')">
-            <i class="fa-solid fa-graduation-cap"></i> ECT Thursina
-        </div>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <ul class="nav-links">
-            <li><a class="nav-link active" onclick="switchPage('home')">Home</a></li>
-            <li><a class="nav-link" onclick="switchPage('project')">Project</a></li>
-            <li><a class="nav-link" onclick="switchPage('assistant')">ECT Assistant</a></li>
-            <li><a class="nav-link" onclick="switchPage('contact')">Contact</a></li>
-            <li><a class="nav-link" onclick="switchPage('feedback')">Feedback</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>English Club of Thursina</h1>
+        <p>Struktur Organisasi & Kepengurusan Utama</p>
+    </header>
 
-    <!-- HALAMAN - HALAMAN -->
-    <main>
-        
-        <!-- HOME PAGE -->
-        <section id="page-home" class="page active-page">
-            <div class="hero">
-                <h1>English Club of Thursina</h1>
-                <blockquote>"English is no longer a luxury, but a necessity"</blockquote>
-                <p style="margin-bottom: 25px;">Official English Improvement Club of Thursina YBM PLN Bogor Boarding School</p>
-                <button class="btn" onclick="switchPage('project')">Explore Our Projects</button>
+    <div class="container">
+        <h2 class="section-title">Pembina & Pengurus Inti</h2>
+
+        <!-- PEMBINA -->
+        <div class="level">
+            <div class="card pembina">
+                <!-- EDIT LINK FOTO DI BAWAH INI (src="...") -->
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Mr. Rahman">
+                <span class="role-badge badge-pembina">Pembina</span>
+                <div class="member-name">Mr. Rahman</div>
+                <div class="member-sub">Advisor</div>
             </div>
+        </div>
+
+        <!-- KETUA -->
+        <div class="level">
+            <div class="card ketua">
+                <!-- EDIT LINK FOTO DI BAWAH INI (src="...") -->
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Ismail Syafiq">
+                <span class="role-badge badge-ketua">Ketua Umum</span>
+                <div class="member-name">Ismail Syafiq</div>
+                <div class="member-sub">President</div>
+            </div>
+        </div>
+
+        <!-- WAKIL KETUA 1 & WAKIL KETUA 2 -->
+        <div class="level">
+            <div class="card wakil">
+                <!-- EDIT LINK FOTO DI BAWAH INI (src="...") -->
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Rafi Naufal Dzakwan">
+                <span class="role-badge badge-wakil">Wakil Ketua 1</span>
+                <div class="member-name">Rafi Naufal Dzakwan</div>
+                <div class="member-sub">Vice President I</div>
+            </div>
+
+            <div class="card wakil">
+                <!-- EDIT LINK FOTO DI BAWAH INI (src="...") -->
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Rafi Putra Risnanda">
+                <span class="role-badge badge-wakil">Wakil Ketua 2</span>
+                <div class="member-name">Rafi Putra Risnanda</div>
+                <div class="member-sub">Vice President II</div>
+            </div>
+        </div>
+
+        <!-- SEKRETARIS -->
+        <div class="level">
+            <div class="card sekretaris">
+                <!-- EDIT LINK FOTO DI BAWAH INI (src="...") -->
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Prabu">
+                <span class="role-badge badge-sekretaris">Sekretaris</span>
+                <div class="member-name">Prabu</div>
+                <div class="member-sub">Secretary</div>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 50px;">Anggota Club (17 Orang)</h2>
+
+        <!-- 17 ANGGOTA -->
+        <div class="members-grid">
             
-            <h2 class="page-title">About Our Club</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-bullseye"></i>
-                    <h3>Our Mission</h3>
-                    <p>To build confidence and English proficiency through interactive learning and practical usage.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-users"></i>
-                    <h3>Community</h3>
-                    <p>Connecting students, mentors, and language enthusiasts in an engaging environment.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-globe"></i>
-                    <h3>Global Vision</h3>
-                    <p>Preparing students to compete globally through research, speeches, and international programs.</p>
-                </div>
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 1">
+                <span class="role-badge badge-anggota">Anggota #1</span>
+                <div class="member-name">Nama Anggota 1</div>
             </div>
-        </section>
 
-        <!-- PROJECT PAGE -->
-        <section id="page-project" class="page">
-            <h2 class="page-title">Great Projects</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-trophy"></i>
-                    <h3>Research Team</h3>
-                    <p>Third place winner (Bronze Medal) of an international research competition.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-masks-theater"></i>
-                    <h3>Drama Team</h3>
-                    <p>Creating and performing English dramas, including our featured performance: <strong>"Bad Fate"</strong>.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-book-open"></i>
-                    <h3>Library Improvement</h3>
-                    <p>Enriching and expanding the English book collection for Thursina Boarding School students.</p>
-                </div>
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 2">
+                <span class="role-badge badge-anggota">Anggota #2</span>
+                <div class="member-name">Nama Anggota 2</div>
             </div>
-        </section>
 
-        <!-- ASSISTANT PAGE -->
-        <section id="page-assistant" class="page">
-            <h2 class="page-title">ECT Assistant</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #555;">Meet our automated assistant! Ask any questions regarding English Club of Thursina using our interactive chat widget.</p>
-            
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-robot"></i>
-                    <h3>Interactive Bot</h3>
-                    <p>Click the chat button at the bottom-left corner to start chatting with ECT Bot in English or Indonesian.</p>
-                    <button class="btn" style="margin-top: 15px;" onclick="openChatbot()">Open Chatbot Now</button>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-comments"></i>
-                    <h3>Speaking Practice</h3>
-                    <p>Ask about ECT activities, vision, mission, schedules, and club features anytime.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                    <h3>Learning Resources</h3>
-                    <p>Access downloadable guides, practice prompts, and club documentation directly.</p>
-                </div>
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 3">
+                <span class="role-badge badge-anggota">Anggota #3</span>
+                <div class="member-name">Nama Anggota 3</div>
             </div>
-        </section>
 
-        <!-- CONTACT PAGE -->
-        <section id="page-contact" class="page">
-            <h2 class="page-title">Contact Us</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <h3>Email Address</h3>
-                    <p>novirahman689@gmail.com<br>ismail@ponpesthursina.id</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-phone"></i>
-                    <h3>Phone / WhatsApp</h3>
-                    <p>+62 878-7288-6162</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-school"></i>
-                    <h3>School Website</h3>
-                    <p><a href="http://www.ponpesthursina.id" target="_blank" style="color:var(--primary-color);">ponpesthursina.id</a></p>
-                </div>
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 4">
+                <span class="role-badge badge-anggota">Anggota #4</span>
+                <div class="member-name">Nama Anggota 4</div>
             </div>
-        </section>
 
-        <!-- FEEDBACK PAGE -->
-        <section id="page-feedback" class="page">
-            <h2 class="page-title">Send Us Feedback</h2>
-            <div class="form-container">
-                <form action="https://formspree.io/f/mjyvvnby" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" name="name" id="name" required placeholder="Enter your full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" name="email" id="email" required placeholder="Enter your email address">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Feedback / Inquiry</label>
-                        <textarea name="message" id="message" rows="5" required placeholder="Write your message here..."></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Send Email</button>
-                </form>
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 5">
+                <span class="role-badge badge-anggota">Anggota #5</span>
+                <div class="member-name">Nama Anggota 5</div>
             </div>
-        </section>
 
-    </main>
-
-    <!-- WHATSAPP FLOATING BUTTON (Kanan Bawah) -->
-    <a href="https://wa.me/6287872886162" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- CHATBOT FLOATING WIDGET (Kiri Bawah) -->
-    <button id="chat-toggle" title="Open ECT Chatbot">💬</button>
-
-    <div class="chatbox" id="chatbox">
-        <div class="chat-header">
-            <i class="fa-solid fa-robot"></i> ECT Bot
-        </div>
-        <div class="messages" id="messages">
-            <div class="msg-wrapper bot-wrapper">
-                <div class="bubble bot"><strong>ECT Bot:</strong> Hi! Ask me about English Club of Thursina 👋</div>
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 6">
+                <span class="role-badge badge-anggota">Anggota #6</span>
+                <div class="member-name">Nama Anggota 6</div>
             </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" id="input" placeholder="Type here..." autocomplete="off" />
-            <button id="send-btn">➤</button> 
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 7">
+                <span class="role-badge badge-anggota">Anggota #7</span>
+                <div class="member-name">Nama Anggota 7</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 8">
+                <span class="role-badge badge-anggota">Anggota #8</span>
+                <div class="member-name">Nama Anggota 8</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 9">
+                <span class="role-badge badge-anggota">Anggota #9</span>
+                <div class="member-name">Nama Anggota 9</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 10">
+                <span class="role-badge badge-anggota">Anggota #10</span>
+                <div class="member-name">Nama Anggota 10</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 11">
+                <span class="role-badge badge-anggota">Anggota #11</span>
+                <div class="member-name">Nama Anggota 11</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 12">
+                <span class="role-badge badge-anggota">Anggota #12</span>
+                <div class="member-name">Nama Anggota 12</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 13">
+                <span class="role-badge badge-anggota">Anggota #13</span>
+                <div class="member-name">Nama Anggota 13</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 14">
+                <span class="role-badge badge-anggota">Anggota #14</span>
+                <div class="member-name">Nama Anggota 14</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 15">
+                <span class="role-badge badge-anggota">Anggota #15</span>
+                <div class="member-name">Nama Anggota 15</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 16">
+                <span class="role-badge badge-anggota">Anggota #16</span>
+                <div class="member-name">Nama Anggota 16</div>
+            </div>
+
+            <div class="card anggota">
+                <img class="profile-img" src="https://via.placeholder.com/150" alt="Anggota 17">
+                <span class="role-badge badge-anggota">Anggota #17</span>
+                <div class="member-name">Nama Anggota 17</div>
+            </div>
+
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 English Club of Thursina. All Rights Reserved.</p>
-    </footer>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // 1. NAVIGATION (SINGLE PAGE APPLICATION)
-        function switchPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active-page'));
-
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if(targetPage) targetPage.classList.add('active-page');
-
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            const activeLink = Array.from(navLinks).find(link => 
-                link.getAttribute('onclick').includes(pageId)
-            );
-            if(activeLink) activeLink.classList.add('active');
-
-            document.querySelector('.nav-links').classList.remove('show');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinksContainer = document.querySelector('.nav-links');
-        mobileMenu.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('show');
-        });
-
-        // 2. CHATBOT WIDGET TOGGLE
-        const toggleBtn = document.getElementById("chat-toggle");
-        const chatbox = document.getElementById("chatbox");
-        const messages = document.getElementById("messages");
-        const input = document.getElementById("input");
-        const sendBtn = document.getElementById("send-btn");
-
-        function openChatbot() {
-            chatbox.style.display = "flex";
-            setTimeout(() => chatbox.classList.add("show"), 10);
-            input.focus();
-        }
-
-        toggleBtn.onclick = () => {
-            if (chatbox.style.display === "none" || chatbox.style.display === "") {
-                openChatbot();
-            } else {
-                chatbox.classList.remove("show");
-                setTimeout(() => chatbox.style.display = "none", 300);
-            }
-        };
-
-        // 3. KNOWLEDGE BASE
-        const knowledgeID = {
-            "halo hai assalamualaikum": "Halo! Selamat datang di English Club of Thursina (ECT) 👋 Ada yang bisa dibantu?",
-            "ect singkatan arti": "ECT adalah singkatan dari English Club of Thursina.",
-            "english club thursina organisasi": "English Club of Thursina adalah organisasi yang berfokus pada pengembangan kemampuan bahasa Inggris siswa.",
-            "tahun berdiri kapan sejarah": "English Club of Thursina berdiri pada bulan September 2025 sebagai wadah kemampuan bahasa Inggris.",
-            "visi tujuan": "Visi ECT adalah membangun komunitas belajar bahasa Inggris yang aktif, kreatif, dan percaya diri.",
-            "misi program kerja": "Misi ECT meliputi pelatihan bahasa Inggris, diskusi, praktik berbicara, dan pengembangan keterampilan komunikasi.",
-            "manfaat fungsi untung": "Anggota ECT dapat meningkatkan kemampuan speaking, listening, reading, dan writing.",
-            "kegiatan acara ngapain": "Kegiatan ECT meliputi discussion, speech, debate, storytelling, games, dan kompetisi bahasa Inggris.",
-            "speech pidato": "Speech adalah latihan berbicara di depan umum menggunakan bahasa Inggris.",
-            "debate debat argumen": "Debate merupakan kegiatan beradu argumen menggunakan bahasa Inggris.",
-            "storytelling cerita": "Storytelling adalah kegiatan menyampaikan cerita dalam bahasa Inggris.",
-            "anggota siapa ikut join syarat": "Keanggotaan ECT terbuka bagi seluruh siswa Thursina yang berminat belajar bahasa Inggris.",
-            "daftar cara registrasi": "Pendaftaran anggota baru dapat dilakukan saat masa rekrutmen dibuka. Silakan hubungi pengurus untuk info lanjut.",
-            "jadwal kapan latihan hari": "Kegiatan dan latihan ECT dilaksanakan sesuai jadwal yang telah ditetapkan oleh pengurus terbaru.",
-            "ketua pengurus struktur organisasi": "ECT memiliki struktur organisasi yang terdiri dari Ketua, Wakil, Sekretaris, Bendahara, dan Anggota aktif.",
-            "prestasi lomba kompetisi": "ECT aktif mendukung dan mengirimkan anggotanya untuk mengikuti berbagai kompetisi bahasa Inggris.",
-            "lokasi dimana tempat": "Kegiatan ECT dilaksanakan di lingkungan sekolah Thursina.",
-            "kontak narahubung instagram hubungi": "Silakan cek akun Instagram resmi ECT atau hubungi pengurus langsung untuk informasi lebih detail.",
-            "terima kasih makasih thanks": "Sama-sama! Senang bisa membantu 😊",
-            "bye dadah duluan": "Sampai jumpa lagi! Have a great day 👋"
-        };
-
-        const knowledgeEN = {
-            "hello hi greeting": "Hello! Welcome to English Club of Thursina (ECT) 👋 How can I help you today?",
-            "ect stand meaning": "ECT stands for English Club of Thursina.",
-            "established history found": "English Club of Thursina was established in September 2025 to help students improve their English skills.",
-            "vision purpose objective": "Our vision is to build an active, creative, and confident English learning community.",
-            "mission program focus": "Our mission includes training, discussions, speaking practice, and communication development.",
-            "benefit advantage skills": "Members can improve speaking, listening, reading, and writing skills.",
-            "activities agenda game": "Our activities include discussions, speeches, debates, storytelling, games, and competitions.",
-            "speech public speaking": "Speech is public speaking practice using English.",
-            "debate argument": "Debate is an activity where members exchange arguments in English.",
-            "storytelling story": "Storytelling is the art of telling stories in English.",
-            "member join student eligibility": "ECT membership is open to all students interested in learning English.",
-            "register sign recruitment open": "You can register when the recruitment period is open through the committee.",
-            "schedule when day training time": "ECT activities and training sessions are conducted according to the official schedule.",
-            "leader committee structure": "ECT consists of a chairperson, vice chairperson, secretary, treasurer, and members.",
-            "competition achievement contest": "ECT encourages and supports members to participate in English competitions.",
-            "location where place ground": "ECT is based in the Thursina environment.",
-            "contact instagram social media": "Please contact the ECT committee or check our official Instagram for further information.",
-            "thanks thank you appreciate": "You're welcome! Happy to help! 😊",
-            "bye goodbye see you": "Goodbye! Have a wonderful day 👋"
-        };
-
-        const stopwords = ["kak", "dong", "sih", "yang", "mau", "tanya", "bisa", "itu", "ini", "ada", "apa", "apakah", "bagaimana", "gimana", "kalo", "kalau", "buat", "untuk", "the", "a", "an", "is", "are", "about", "how", "to", "do", "you"];
-
-        function detectLanguage(wordsArray) {
-            const engKeywords = ["hello", "hi", "purpose", "vision", "mission", "activities", "established", "join", "how", "thanks", "thank", "bye", "where", "when", "what"];
-            const idKeywords = ["halo", "hai", "assalamualaikum", "visi", "misi", "tujuan", "kegiatan", "daftar", "jadwal", "latihan", "ketua", "pengurus", "lomba", "dimana", "kapan", "terima", "makasih"];
-            
-            let scoreEN = 0;
-            let scoreID = 0;
-            
-            wordsArray.forEach(word => {
-                if (engKeywords.includes(word)) scoreEN++;
-                if (idKeywords.includes(word)) scoreID++;
-            });
-
-            return scoreEN > scoreID ? "en" : "id";
-        }
-
-        function handleSendMessage() {
-            const userText = input.value.trim();
-            if (userText === "") return;
-
-            addMessage("You", userText, "user");
-            input.value = "";
-            replyBot(userText);
-        }
-
-        input.addEventListener("keypress", e => {
-            if (e.key === "Enter") handleSendMessage();
-        });
-        sendBtn.addEventListener("click", handleSendMessage);
-
-        function addMessage(sender, text, cls) {
-            const wrapper = document.createElement("div");
-            wrapper.className = `msg-wrapper ${cls}-wrapper`;
-
-            const bubble = document.createElement("div");
-            bubble.className = `bubble ${cls}`;
-            bubble.innerHTML = `<strong>${sender}:</strong> ${text}`;
-
-            wrapper.appendChild(bubble);
-            messages.appendChild(wrapper);
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        function replyBot(inputText) {
-            const cleanText = inputText.toLowerCase().replace(/[^a-zA-Z0-9\s]/g, "");
-            const inputWords = cleanText.split(/\s+/);
-            const filteredWords = [...new Set(inputWords.filter(word => !stopwords.includes(word)))];
-
-            if (filteredWords.length === 0 || filteredWords[0] === "") {
-                const langDefault = detectLanguage(inputWords);
-                const defaultReply = langDefault === "en" 
-                    ? "I'm sorry, could you please be more specific? 😊" 
-                    : "Mohon maaf, bisa diperjelas lagi pertanyaannya? 😊";
-                
-                setTimeout(() => addMessage("ECT Bot", defaultReply, "bot"), 500);
-                return;
-            }
-
-            const lang = detectLanguage(filteredWords);
-            const brain = lang === "en" ? knowledgeEN : knowledgeID;
-
-            let bestReply = lang === "en"
-                ? "Sorry, I am not sure about that. Can you rephrase or ask the ECT committee? 😊"
-                : "Maaf, saya belum memahami maksudnya. Coba gunakan kata kunci lain atau hubungi pengurus ECT ya! 😊";
-
-            let highestScore = 0;
-
-            for (let keyGroup in brain) {
-                const keys = keyGroup.split(" ");
-                let currentScore = 0;
-
-                filteredWords.forEach(word => {
-                    keys.forEach(key => {
-                        if (key === word) {
-                            currentScore += 3; 
-                        } else if (word.length > 3 && (word.includes(key) || key.includes(word))) {
-                            currentScore += 1; 
-                        }
-                    });
-                });
-
-                if (currentScore > highestScore) {
-                    highestScore = currentScore;
-                    bestReply = brain[keyGroup];
-                }
-            }
-
-            setTimeout(() => {
-                addMessage("ECT Bot", bestReply, "bot");
-            }, 500);
-        }
-    </script>
 </body>
 </html>
