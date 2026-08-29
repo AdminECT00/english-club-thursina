@@ -325,7 +325,7 @@
             bottom: 100px;
             left: 30px;
             width: 360px;
-            height: 480px;
+            height: 500px;
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.25);
@@ -359,27 +359,30 @@
             gap: 8px;
         }
 
-        .chat-header-actions {
+        .api-key-bar {
+            background: #e9ecef;
+            padding: 8px 12px;
             display: flex;
-            gap: 5px;
+            gap: 6px;
+            border-bottom: 1px solid #ddd;
         }
 
-        .copy-btn {
-            background: rgba(255, 255, 255, 0.2);
+        .api-key-bar input {
+            flex: 1;
+            padding: 4px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .api-key-bar button {
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 5px 10px;
-            border-radius: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
             font-size: 11px;
             cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .copy-btn:hover {
-            background: rgba(255, 255, 255, 0.35);
         }
 
         .messages {
@@ -633,9 +636,8 @@
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-key"></i>
-                    <h3>Manage API Key</h3>
-                    <p>Set or update your Gemini API Key safely to ensure chatbot functionality.</p>
-                    <button class="btn" style="margin-top: 15px;" onclick="setApiKeyPrompt()">Set API Key</button>
+                    <h3>API Key Status</h3>
+                    <p>Masukkan API Key Gemini langsung di bagian atas kotak chat untuk mulai menggunakannya.</p>
                 </div>
             </div>
         </section>
@@ -699,18 +701,16 @@
             <div class="chat-header-title">
                 <i class="fa-solid fa-robot"></i> ECT Bot (AI)
             </div>
-            <div class="chat-header-actions">
-                <button class="copy-btn" id="key-chat-btn" onclick="setApiKeyPrompt()" title="Set API Key">
-                    <i class="fa-solid fa-key"></i> Key
-                </button>
-                <button class="copy-btn" id="copy-chat-btn" title="Copy Chat History">
-                    <i class="fa-regular fa-copy"></i> Copy
-                </button>
-            </div>
         </div>
+
+        <div class="api-key-bar">
+            <input type="password" id="api-key-input" placeholder="Masukkan Gemini API Key..." />
+            <button id="save-key-btn">Simpan</button>
+        </div>
+
         <div class="messages" id="messages">
             <div class="msg-wrapper bot-wrapper">
-                <div class="bubble bot"><strong>ECT Bot:</strong> Hi! I am ECT Smart Assistant. Ask me anything about English Club of Thursina! 👋</div>
+                <div class="bubble bot"><strong>ECT Bot:</strong> Halo! Masukkan Gemini API Key Anda di kolom atas terlebih dahulu untuk mulai mengobrol. 👋</div>
             </div>
         </div>
         <div class="chat-input">
@@ -779,14 +779,31 @@
         });
 
         // ----------------------------------------------------
-        // 3. CHATBOT WIDGET TOGGLE & UTILITIES
+        // 3. CHATBOT WIDGET TOGGLE
         // ----------------------------------------------------
         const toggleBtn = document.getElementById("chat-toggle");
         const chatbox = document.getElementById("chatbox");
         const messages = document.getElementById("messages");
         const input = document.getElementById("input");
         const sendBtn = document.getElementById("send-btn");
-        const copyChatBtn = document.getElementById("copy-chat-btn");
+        const apiKeyInput = document.getElementById("api-key-input");
+        const saveKeyBtn = document.getElementById("save-key-btn");
+
+        // Muat API key tersimpan jika ada
+        if (localStorage.getItem("GEMINI_KEY")) {
+            apiKeyInput.value = localStorage.getItem("GEMINI_KEY");
+        }
+
+        saveKeyBtn.addEventListener("click", () => {
+            const val = apiKeyInput.value.trim();
+            if (val) {
+                localStorage.setItem("GEMINI_KEY", val);
+                alert("API Key berhasil disimpan di browser Anda!");
+            } else {
+                localStorage.removeItem("GEMINI_KEY");
+                alert("API Key dihapus.");
+            }
+        });
 
         function openChatbot() {
             chatbox.style.display = "flex";
@@ -803,28 +820,8 @@
             }
         };
 
-        if (copyChatBtn) {
-            copyChatBtn.onclick = () => {
-                const textToCopy = Array.from(messages.querySelectorAll('.bubble'))
-                    .map(b => b.innerText)
-                    .join('\n\n');
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    alert('Chat history copied to clipboard!');
-                });
-            };
-        }
-
-        function setApiKeyPrompt() {
-            const currentKey = localStorage.getItem("GEMINI_KEY") || "";
-            const newKey = prompt("Masukkan Gemini API Key Anda (tersimpan secara aman di browser lokal Anda):", currentKey);
-            if (newKey !== null) {
-                localStorage.setItem("GEMINI_KEY", newKey.trim());
-                alert("API Key berhasil diperbarui!");
-            }
-        }
-
         // ----------------------------------------------------
-        // 4. GEMINI AI INTEGRATION WITH CONVERSATION HISTORY
+        // 4. GEMINI AI INTEGRATION
         // ----------------------------------------------------
         const systemPrompt = `You are ECT Bot, the official AI Smart Assistant for the English Club of Thursina (ECT) at Thursina YBM PLN Bogor Boarding School.
 Your job is to assist visitors, answer questions about ECT, and help users practice English. Be friendly, polite, informative, and encouraging.
@@ -881,15 +878,10 @@ Instructions:
         }
 
         async function fetchGeminiAIResponse(userMessage) {
-            let apiKey = localStorage.getItem("GEMINI_KEY");
+            const apiKey = apiKeyInput.value.trim() || localStorage.getItem("GEMINI_KEY");
 
             if (!apiKey) {
-                apiKey = prompt("Silakan masukkan Gemini API Key Anda untuk mulai mengobrol:");
-                if (apiKey) {
-                    localStorage.setItem("GEMINI_KEY", apiKey.trim());
-                } else {
-                    throw new Error("API Key diperlukan untuk menggunakan chatbot.");
-                }
+                throw new Error("API Key belum dimasukkan! Masukkan API Key pada kolom di atas.");
             }
 
             const contents = [
@@ -904,7 +896,8 @@ Instructions:
                 }
             };
 
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey.trim()}`, {
+            // Menggunakan endpoint model gemini-1.5-flash resmi
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestBody)
@@ -913,13 +906,10 @@ Instructions:
             const data = await response.json();
 
             if (!response.ok) {
-                if (response.status === 400 || response.status === 403) {
-                    localStorage.removeItem("GEMINI_KEY");
-                }
-                throw new Error(data.error?.message || "Gagal mengambil respon dari AI.");
+                throw new Error(data.error?.message || "Terjadi masalah saat menghubungkan ke AI.");
             }
 
-            const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, tidak ada respon.";
+            const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, AI tidak memberikan jawaban.";
 
             conversationHistory.push({ role: "user", parts: [{ text: userMessage }] });
             conversationHistory.push({ role: "model", parts: [{ text: botReply }] });
@@ -947,7 +937,7 @@ Instructions:
                 addMessageSender("ECT Bot", reply, "bot");
             } catch (error) {
                 document.getElementById("loading-bubble")?.remove();
-                addMessageSender("ECT Bot", `Error: ${error.message}`, "bot");
+                addMessageSender("ECT Bot", `⚠️ ${error.message}`, "bot");
             }
         }
 
