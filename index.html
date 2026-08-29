@@ -167,9 +167,16 @@
             border-radius: 2px;
         }
 
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 40px 0 20px 0;
+            color: var(--primary-color);
+        }
+
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
 
@@ -190,6 +197,45 @@
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
+        }
+
+        /* Structure Card Specific Styles */
+        .member-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px auto;
+            border: 4px solid var(--primary-color);
+            display: block;
+        }
+
+        .member-role {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .member-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-color);
         }
 
         /* Form Styles */
@@ -421,6 +467,7 @@
         </div>
         <ul class="nav-links">
             <li><a class="nav-link active" onclick="switchPage('home')">Home</a></li>
+            <li><a class="nav-link" onclick="switchPage('structure')">Structure</a></li>
             <li><a class="nav-link" onclick="switchPage('project')">Project</a></li>
             <li><a class="nav-link" onclick="switchPage('assistant')">ECT Assistant</a></li>
             <li><a class="nav-link" onclick="switchPage('contact')">Contact</a></li>
@@ -456,6 +503,134 @@
                     <i class="fa-solid fa-globe"></i>
                     <h3>Global Vision</h3>
                     <p>Preparing students to compete globally through research, speeches, and international programs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STRUCTURE PAGE -->
+        <section id="page-structure" class="page">
+            <h2 class="page-title">Organizational Structure</h2>
+            
+            <!-- Pengurus Inti -->
+            <div class="grid-container">
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Pembina" class="member-img">
+                    <div class="member-role">Pembina</div>
+                    <div class="member-name">Mr. Rahman</div>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Ketua" class="member-img">
+                    <div class="member-role">Ketua</div>
+                    <div class="member-name">Ismail Syafiq</div>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Wakil Ketua 1" class="member-img">
+                    <div class="member-role">Wakil Ketua 1</div>
+                    <div class="member-name">Rafi Naufal Dzakwan</div>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Wakil Ketua 2" class="member-img">
+                    <div class="member-role">Wakil Ketua 2</div>
+                    <div class="member-name">Rafi Putra Risnanda</div>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Sekretaris" class="member-img">
+                    <div class="member-role">Sekretaris</div>
+                    <div class="member-name">Prabu</div>
+                </div>
+            </div>
+
+            <!-- Section Anggota -->
+            <h3 class="section-subtitle">Active Members (17 Members)</h3>
+            <div class="grid-container">
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 1" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 1</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 2" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 2</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 3" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 3</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 4" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 4</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 5" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 5</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 6" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 6</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 7" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 7</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 8" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 8</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 9" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 9</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 10" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 10</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 11" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 11</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 12" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 12</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 13" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 13</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 14" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 14</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 15" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 15</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 16" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 16</div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/150" alt="Anggota 17" class="member-img">
+                    <div class="member-role">Anggota</div>
+                    <div class="member-name">Anggota 17</div>
                 </div>
             </div>
         </section>
@@ -647,7 +822,7 @@
             "anggota siapa ikut join syarat": "Keanggotaan ECT terbuka bagi seluruh siswa Thursina yang berminat belajar bahasa Inggris.",
             "daftar cara registrasi": "Pendaftaran anggota baru dapat dilakukan saat masa rekrutmen dibuka. Silakan hubungi pengurus untuk info lanjut.",
             "jadwal kapan latihan hari": "Kegiatan dan latihan ECT dilaksanakan sesuai jadwal yang telah ditetapkan oleh pengurus terbaru.",
-            "ketua pengurus struktur organisasi": "ECT memiliki struktur organisasi yang terdiri dari Ketua, Wakil, Sekretaris, Bendahara, dan Anggota aktif.",
+            "ketua pengurus struktur organisasi pembina wakil sekretaris": "Struktur ECT: Pembina: Mr. Rahman, Ketua: Ismail Syafiq, Wakil Ketua 1: Rafi Naufal Dzakwan, Wakil Ketua 2: Rafi Putra Risnanda, Sekretaris: Prabu, serta 17 anggota aktif.",
             "prestasi lomba kompetisi": "ECT aktif mendukung dan mengirimkan anggotanya untuk mengikuti berbagai kompetisi bahasa Inggris.",
             "lokasi dimana tempat": "Kegiatan ECT dilaksanakan di lingkungan sekolah Thursina.",
             "kontak narahubung instagram hubungi": "Silakan cek akun Instagram resmi ECT atau hubungi pengurus langsung untuk informasi lebih detail.",
@@ -669,7 +844,7 @@
             "member join student eligibility": "ECT membership is open to all students interested in learning English.",
             "register sign recruitment open": "You can register when the recruitment period is open through the committee.",
             "schedule when day training time": "ECT activities and training sessions are conducted according to the official schedule.",
-            "leader committee structure": "ECT consists of a chairperson, vice chairperson, secretary, treasurer, and members.",
+            "leader committee structure advisor president vice secretary": "ECT Structure: Advisor: Mr. Rahman, President: Ismail Syafiq, Vice President 1: Rafi Naufal Dzakwan, Vice President 2: Rafi Putra Risnanda, Secretary: Prabu, and 17 active members.",
             "competition achievement contest": "ECT encourages and supports members to participate in English competitions.",
             "location where place ground": "ECT is based in the Thursina environment.",
             "contact instagram social media": "Please contact the ECT committee or check our official Instagram for further information.",
