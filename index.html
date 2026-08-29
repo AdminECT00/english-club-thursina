@@ -800,7 +800,6 @@
         // ----------------------------------------------------
         const GEMINI_API_KEY = "PASTE_API_KEY_ANDA_DI_SINI"; // <-- MASUKKAN GEMINI API KEY ANDA DI SINI
 
-        // Direct Knowledge Base System Instruction
         const systemPrompt = `You are ECT Bot, the official AI Smart Assistant for the English Club of Thursina (ECT) at Thursina YBM PLN Bogor Boarding School.
 Your job is to assist visitors, answer questions about ECT, and help users practice English. Be friendly, polite, informative, and encouraging.
 
@@ -826,7 +825,6 @@ Instructions:
 - Keep responses concise, well-formatted, and easy to read inside a small chat bubble.
 - Use bold formatting for emphasis where needed.`;
 
-        // Array to hold conversation context history for Gemini multi-turn chat
         let conversationHistory = [];
 
         function addMessageSender(sender, text, type) {
@@ -857,7 +855,6 @@ Instructions:
         }
 
         async function fetchGeminiAIResponse(userMessage) {
-            // Build contents array with context history
             const contents = [
                 ...conversationHistory,
                 { role: "user", parts: [{ text: userMessage }] }
@@ -870,8 +867,7 @@ Instructions:
                 }
             };
 
-            // Menggunakan endpoint gemini-1.5-flash
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestBody)
@@ -885,7 +881,6 @@ Instructions:
             const data = await response.json();
             const botReply = data.candidates[0].content.parts[0].text;
 
-            // Save conversation back to context history
             conversationHistory.push({ role: "user", parts: [{ text: userMessage }] });
             conversationHistory.push({ role: "model", parts: [{ text: botReply }] });
 
@@ -899,62 +894,26 @@ Instructions:
             addMessageSender("You", userText, "user");
             input.value = "";
 
-            // Show temporary loading bubble
             const loadingWrapper = document.createElement("div");
             loadingWrapper.className = "msg-wrapper bot-wrapper";
             loadingWrapper.id = "loading-bubble";
-            loadingWrapper.innerHTML = `<div class="bubble bot"><em>ECT Bot is typing...</em></div>`;
+            loadingWrapper.innerHTML = `<div class="bubble bot"><em>Thinking...</em></div>`;
             messages.appendChild(loadingWrapper);
             messages.scrollTop = messages.scrollHeight;
 
             try {
-                const aiResponse = await fetchGeminiAIResponse(userText);
-                
-                // Remove loading bubble
-                const loader = document.getElementById("loading-bubble");
-                if (loader) loader.remove();
-
-                // Format simple markdown bold text to HTML
-                let formattedResponse = aiResponse
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-                addMessageSender("ECT Bot", formattedResponse, "bot");
+                const reply = await fetchGeminiAIResponse(userText);
+                document.getElementById("loading-bubble")?.remove();
+                addMessageSender("ECT Bot", reply, "bot");
             } catch (error) {
-                console.error("Gemini Error:", error);
-                const loader = document.getElementById("loading-bubble");
-                if (loader) loader.remove();
-
-                addMessageSender("ECT Bot", "Maaf, terjadi masalah saat menghubungkan ke AI Service. Pastikan **API Key** sudah dikonfigurasi dengan benar.", "bot");
+                document.getElementById("loading-bubble")?.remove();
+                addMessageSender("ECT Bot", "Sorry, I encountered an error. Please try again later.", "bot");
             }
         }
 
         sendBtn.addEventListener("click", handleSendMessage);
         input.addEventListener("keypress", (e) => {
             if (e.key === "Enter") handleSendMessage();
-        });
-
-        // ----------------------------------------------------
-        // 5. COPY CHAT FEATURE
-        // ----------------------------------------------------
-        copyChatBtn.addEventListener("click", () => {
-            const allBubbles = messages.querySelectorAll(".bubble");
-            if (allBubbles.length === 0) return;
-
-            let chatText = "=== ECT Chatbot Conversation History ===\n\n";
-            allBubbles.forEach((bubble) => {
-                chatText += bubble.innerText + "\n\n";
-            });
-
-            navigator.clipboard.writeText(chatText).then(() => {
-                const originalText = copyChatBtn.innerHTML;
-                copyChatBtn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
-                setTimeout(() => {
-                    copyChatBtn.innerHTML = originalText;
-                }, 2000);
-            }).catch(err => {
-                alert("Gagal menyalin percakapan.");
-            });
         });
     </script>
 </body>
