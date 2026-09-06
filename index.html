@@ -1,933 +1,988 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Club of Thursina</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #0b5ed7;
-            --dark-color: #212529;
-            --light-color: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>English Club of Thursina</title>
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+<style>
+ :root {
+ --primary-color: #0d6efd;
+ --secondary-color: #0b5ed7;
+ --dark-color: #212529;
+ --light-color: #f8f9fa;
+ --white: #ffffff;
+ --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ --transition: all 0.3s ease;
+ }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Poppins', sans-serif;
+ }
 
-        body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+ body {
+ background-color: var(--light-color);
+ color: var(--dark-color);
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+ }
 
-        /* Navigation */
-        .navbar {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-        }
+ /* Navigation */
+ .navbar {
+ background: var(--white);
+ box-shadow: var(--shadow);
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 1000;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1rem 5%;
+ }
 
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
+ .logo {
+ font-size: 1.3rem;
+ font-weight: 700;
+ color: var(--primary-color);
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ cursor: pointer;
+ }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
+ .nav-links {
+ display: flex;
+ list-style: none;
+ gap: 15px;
+ }
 
-        .nav-link {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
+ .nav-link {
+ text-decoration: none;
+ color: var(--dark-color);
+ font-weight: 500;
+ padding: 8px 16px;
+ border-radius: 20px;
+ transition: var(--transition);
+ cursor: pointer;
+ }
 
-        .nav-link:hover, .nav-link.active {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
+ .nav-link:hover, .nav-link.active {
+ background-color: var(--primary-color);
+ color: var(--white);
+ }
 
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+ .menu-toggle {
+ display: none;
+ font-size: 1.5rem;
+ cursor: pointer;
+ }
 
-        /* Page Container System */
-        main {
-            margin-top: 70px;
-            flex: 1;
-        }
+ /* Page Container System */
+ main {
+ margin-top: 70px;
+ flex: 1;
+ }
 
-        .page {
-            display: none;
-            padding: 60px 8%;
-            animation: fadeIn 0.4s ease-in-out;
-        }
+ .page {
+ display: none;
+ padding: 60px 8%;
+ animation: fadeIn 0.4s ease-in-out;
+ }
 
-        .page.active-page {
-            display: block;
-        }
+ .page.active-page {
+ display: block;
+ }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(10px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            border-radius: 15px;
-            padding: 100px 20px;
-            text-align: center;
-            color: var(--white);
-            margin-bottom: 40px;
-        }
+ /* Hero Section */
+ .hero {
+ background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+ border-radius: 15px;
+ padding: 100px 20px;
+ text-align: center;
+ color: var(--white);
+ margin-bottom: 40px;
+ }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-        }
+ .hero h1 {
+ font-size: 2.8rem;
+ margin-bottom: 15px;
+ }
 
-        .hero blockquote {
-            font-style: italic;
-            font-size: 1.2rem;
-            margin: 0 auto 25px auto;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px;
-            border-left: 4px solid var(--primary-color);
-            border-radius: 4px;
-        }
+ .hero blockquote {
+ font-style: italic;
+ font-size: 1.2rem;
+ margin: 0 auto 25px auto;
+ max-width: 600px;
+ background: rgba(255, 255, 255, 0.15);
+ padding: 12px;
+ border-left: 4px solid var(--primary-color);
+ border-radius: 4px;
+ }
 
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
+ .btn {
+ display: inline-block;
+ background: var(--primary-color);
+ color: var(--white);
+ padding: 12px 30px;
+ border: none;
+ border-radius: 30px;
+ text-decoration: none;
+ font-weight: 600;
+ cursor: pointer;
+ transition: var(--transition);
+ }
 
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
+ .btn:hover {
+ background: var(--secondary-color);
+ transform: translateY(-2px);
+ }
 
-        /* Layout UI Common */
-        .page-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
+ .btn:disabled {
+ background: #6c757d;
+ cursor: not-allowed;
+ transform: none;
+ }
 
-        .page-title::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
+ /* Layout UI Common */
+ .page-title {
+ text-align: center;
+ font-size: 2.2rem;
+ margin-bottom: 40px;
+ position: relative;
+ }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.5rem;
-            margin: 40px 0 20px 0;
-            color: var(--primary-color);
-        }
+ .page-title::after {
+ content: '';
+ width: 60px;
+ height: 4px;
+ background: var(--primary-color);
+ display: block;
+ margin: 10px auto 0;
+ border-radius: 2px;
+ }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
+ .section-subtitle {
+ text-align: center;
+ font-size: 1.5rem;
+ margin: 40px 0 20px 0;
+ color: var(--primary-color);
+ }
 
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
+ .grid-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 25px;
+ }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+ .card {
+ background: var(--white);
+ border-radius: 12px;
+ padding: 30px;
+ box-shadow: var(--shadow);
+ text-align: center;
+ transition: var(--transition);
+ }
 
-        .card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
+ .card:hover {
+ transform: translateY(-5px);
+ }
 
-        /* Structure Card Specific Styles */
-        .member-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 25px 20px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
+ .card i {
+ font-size: 2.5rem;
+ color: var(--primary-color);
+ margin-bottom: 15px;
+ }
 
-        .member-card:hover {
-            transform: translateY(-5px);
-        }
+ /* Structure Card Specific Styles */
+ .member-card {
+ background: var(--white);
+ border-radius: 12px;
+ padding: 25px 20px;
+ box-shadow: var(--shadow);
+ text-align: center;
+ transition: var(--transition);
+ }
 
-        .member-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 15px auto;
-            border: 4px solid var(--primary-color);
-            display: block;
-        }
+ .member-card:hover {
+ transform: translateY(-5px);
+ }
 
-        .member-role {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
-        }
+ .member-img {
+ width: 120px;
+ height: 120px;
+ border-radius: 50%;
+ object-fit: cover;
+ margin: 0 auto 15px auto;
+ border: 4px solid var(--primary-color);
+ display: block;
+ }
 
-        .member-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-color);
-        }
+ .member-role {
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: var(--primary-color);
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ margin-bottom: 5px;
+ }
 
-        /* Form Styles */
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
+ .member-name {
+ font-size: 1.1rem;
+ font-weight: 600;
+ color: var(--dark-color);
+ }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+ /* Form Styles */
+ .form-container {
+ max-width: 600px;
+ margin: 0 auto;
+ background: var(--white);
+ padding: 30px;
+ border-radius: 12px;
+ box-shadow: var(--shadow);
+ }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
+ .form-group {
+ margin-bottom: 20px;
+ }
 
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-        }
+ .form-group label {
+ display: block;
+ margin-bottom: 8px;
+ font-weight: 600;
+ }
 
-        /* Floating WhatsApp Button (Kanan Bawah) */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50px;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            text-decoration: none;
-            transition: var(--transition);
-        }
+ .form-group input, .form-group textarea {
+ width: 100%;
+ padding: 12px;
+ border: 1px solid #ddd;
+ border-radius: 8px;
+ outline: none;
+ }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
+ /* Floating WhatsApp Button (Kanan Bawah) */
+ .whatsapp-float {
+ position: fixed;
+ bottom: 30px;
+ right: 30px;
+ background-color: #25d366;
+ color: white;
+ border-radius: 50px;
+ width: 60px;
+ height: 60px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 30px;
+ box-shadow: var(--shadow);
+ z-index: 1000;
+ text-decoration: none;
+ transition: var(--transition);
+ }
 
-        /* STYLES FLOATING CHATBOT (Kiri Bawah) */
-        #chat-toggle {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+ .whatsapp-float:hover {
+ transform: scale(1.1);
+ }
 
-        #chat-toggle:hover {
-            transform: scale(1.1);
-        }
+ /* STYLES FLOATING CHATBOT (Kiri Bawah) */
+ #chat-toggle {
+ position: fixed;
+ bottom: 30px;
+ left: 30px;
+ background: var(--primary-color);
+ color: white;
+ border: none;
+ border-radius: 50%;
+ width: 60px;
+ height: 60px;
+ font-size: 24px;
+ cursor: pointer;
+ z-index: 1000;
+ box-shadow: var(--shadow);
+ transition: transform 0.2s;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
 
-        .chatbox {
-            position: fixed;
-            bottom: 100px;
-            left: 30px;
-            width: 360px;
-            height: 480px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
-            display: none;
-            flex-direction: column;
-            z-index: 999;
-            overflow: hidden;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            opacity: 0;
-            transform: translateY(10px);
-        }
+ #chat-toggle:hover {
+ transform: scale(1.1);
+ }
 
-        .chatbox.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+ .chatbox {
+ position: fixed;
+ bottom: 100px;
+ left: 30px;
+ width: 360px;
+ height: 480px;
+ background: #fff;
+ border-radius: 12px;
+ box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+ display: none;
+ flex-direction: column;
+ z-index: 999;
+ overflow: hidden;
+ transition: opacity 0.3s ease, transform 0.3s ease;
+ opacity: 0;
+ transform: translateY(10px);
+ }
 
-        .chat-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+ .chatbox.show {
+ opacity: 1;
+ transform: translateY(0);
+ }
 
-        .messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            background: #f9f9fc;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+ .chat-header {
+ background: var(--primary-color);
+ color: white;
+ padding: 15px;
+ font-weight: bold;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
 
-        .msg-wrapper {
-            display: flex;
-            width: 100%;
-        }
-        .msg-wrapper.user-wrapper {
-            justify-content: flex-end;
-        }
-        .msg-wrapper.bot-wrapper {
-            justify-content: flex-start;
-        }
+ .messages {
+ flex: 1;
+ padding: 15px;
+ overflow-y: auto;
+ background: #f9f9fc;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ }
 
-        .bubble {
-            max-width: 85%;
-            padding: 10px 14px;
-            border-radius: 14px;
-            font-size: 13.5px;
-            line-height: 1.4;
-            word-wrap: break-word;
-        }
-        .bot {
-            background: #eef0f8;
-            color: #333;
-            border-top-left-radius: 2px;
-        }
-        .user {
-            background: var(--primary-color);
-            color: white;
-            border-top-right-radius: 2px;
-        }
+ .msg-wrapper {
+ display: flex;
+ width: 100%;
+ }
+ .msg-wrapper.user-wrapper {
+ justify-content: flex-end;
+ }
+ .msg-wrapper.bot-wrapper {
+ justify-content: flex-start;
+ }
 
-        .chat-input {
-            padding: 12px;
-            border-top: 1px solid #ddd;
-            display: flex;
-            gap: 8px;
-            background: #fff;
-        }
+ .bubble {
+ max-width: 85%;
+ padding: 10px 14px;
+ border-radius: 14px;
+ font-size: 13.5px;
+ line-height: 1.4;
+ word-wrap: break-word;
+ }
+ .bot {
+ background: #eef0f8;
+ color: #333;
+ border-top-left-radius: 2px;
+ }
+ .user {
+ background: var(--primary-color);
+ color: white;
+ border-top-right-radius: 2px;
+ }
 
-        .chat-input input {
-            flex: 1;
-            padding: 8px 14px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
+ .chat-input {
+ padding: 12px;
+ border-top: 1px solid #ddd;
+ display: flex;
+ gap: 8px;
+ background: #fff;
+ }
 
-        .chat-input input:focus {
-            border-color: var(--primary-color);
-        }
+ .chat-input input {
+ flex: 1;
+ padding: 8px 14px;
+ border-radius: 20px;
+ border: 1px solid #ccc;
+ outline: none;
+ }
 
-        .chat-input button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+ .chat-input input:focus {
+ border-color: var(--primary-color);
+ }
 
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: var(--white);
-            text-align: center;
-            padding: 20px;
-        }
+ .chat-input button {
+ background: var(--primary-color);
+ color: white;
+ border: none;
+ border-radius: 50%;
+ width: 36px;
+ height: 36px;
+ cursor: pointer;
+ font-size: 14px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: var(--shadow);
-                display: none;
-            }
-            .nav-links.show { display: flex; }
-            .hero h1 { font-size: 2rem; }
-            .chatbox {
-                width: 90%;
-                left: 5%;
-                bottom: 90px;
-            }
-        }
-    </style>
+ /* Footer */
+ footer {
+ background: var(--dark-color);
+ color: var(--white);
+ text-align: center;
+ padding: 20px;
+ }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+ .menu-toggle { display: block; }
+ .nav-links {
+ position: absolute;
+ top: 100%;
+ left: 0;
+ width: 100%;
+ background: var(--white);
+ flex-direction: column;
+ align-items: center;
+ padding: 20px 0;
+ box-shadow: var(--shadow);
+ display: none;
+ }
+ .nav-links.show { display: flex; }
+ .hero h1 { font-size: 2rem; }
+ .chatbox {
+ width: 90%;
+ left: 5%;
+ bottom: 90px;
+ }
+ }
+ </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo" onclick="switchPage('home')">
-            <i class="fa-solid fa-graduation-cap"></i> ECT Thursina
-        </div>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <ul class="nav-links">
-            <li><a class="nav-link active" onclick="switchPage('home')">Home</a></li>
-            <li><a class="nav-link" onclick="switchPage('structure')">Structure</a></li>
-            <li><a class="nav-link" onclick="switchPage('project')">Project</a></li>
-            <li><a class="nav-link" onclick="switchPage('assistant')">ECT Assistant</a></li>
-            <li><a class="nav-link" onclick="switchPage('contact')">Contact</a></li>
-            <li><a class="nav-link" onclick="switchPage('feedback')">Feedback</a></li>
-        </ul>
-    </nav>
+ <!-- NAVBAR -->
+ <nav class="navbar">
+ <div class="logo" onclick="switchPage('home')">
+ <i class="fa-solid fa-graduation-cap"></i> ECT Thursina
+ </div>
+ <div class="menu-toggle" id="mobile-menu">
+ <i class="fa-solid fa-bars"></i>
+ </div>
+ <ul class="nav-links">
+ <li><a class="nav-link active" onclick="switchPage('home')">Home</a></li>
+ <li><a class="nav-link" onclick="switchPage('structure')">Structure</a></li>
+ <li><a class="nav-link" onclick="switchPage('project')">Project</a></li>
+ <li><a class="nav-link" onclick="switchPage('assistant')">ECT Assistant</a></li>
+ <li><a class="nav-link" onclick="switchPage('contact')">Contact</a></li>
+ <li><a class="nav-link" onclick="switchPage('feedback')">Feedback</a></li>
+ </ul>
+ </nav>
 
-    <!-- HALAMAN - HALAMAN -->
-    <main>
-        
-        <!-- HOME PAGE -->
-        <section id="page-home" class="page active-page">
-            <div class="hero">
-                <h1>English Club of Thursina</h1>
-                <blockquote>"English is no longer a luxury, but a necessity"</blockquote>
-                <p style="margin-bottom: 25px;">Official English Improvement Club of Thursina YBM PLN Bogor Boarding School</p>
-                <button class="btn" onclick="switchPage('project')">Explore Our Projects</button>
-            </div>
-            
-            <h2 class="page-title">About Our Club</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-bullseye"></i>
-                    <h3>Our Mission</h3>
-                    <p>To build confidence and English proficiency through interactive learning and practical usage.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-users"></i>
-                    <h3>Community</h3>
-                    <p>Connecting students, mentors, and language enthusiasts in an engaging environment.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-globe"></i>
-                    <h3>Global Vision</h3>
-                    <p>Preparing students to compete globally through research, speeches, and international programs.</p>
-                </div>
-            </div>
-        </section>
+ <!-- HALAMAN - HALAMAN -->
+ <main>
+ 
+ <!-- HOME PAGE -->
+ <section id="page-home" class="page active-page">
+ <div class="hero">
+ <h1>English Club of Thursina</h1>
+ <blockquote>"English is no longer a luxury, but a necessity"</blockquote>
+ <p style="margin-bottom: 25px;">Official English Improvement Club of Thursina YBM PLN Bogor Boarding School</p>
+ <button class="btn" onclick="switchPage('project')">Explore Our Projects</button>
+ </div>
+ 
+ <h2 class="page-title">About Our Club</h2>
+ <div class="grid-container">
+ <div class="card">
+ <i class="fa-solid fa-bullseye"></i>
+ <h3>Our Mission</h3>
+ <p>To build confidence and English proficiency through interactive learning and practical usage.</p>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-users"></i>
+ <h3>Community</h3>
+ <p>Connecting students, mentors, and language enthusiasts in an engaging environment.</p>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-globe"></i>
+ <h3>Global Vision</h3>
+ <p>Preparing students to compete globally through research, speeches, and international programs.</p>
+ </div>
+ </div>
+ </section>
 
-        <!-- STRUCTURE PAGE -->
-        <section id="page-structure" class="page">
-            <h2 class="page-title">Organizational Structure</h2>
-            
-            <!-- Pengurus Inti -->
-            <div class="grid-container">
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Pembina" class="member-img">
-                    <div class="member-role">Pembina</div>
-                    <div class="member-name">Ust. Ismail</div>
-                </div>
+ <!-- STRUCTURE PAGE -->
+ <section id="page-structure" class="page">
+ <h2 class="page-title">Organizational Structure</h2>
+ 
+ <!-- Pengurus Inti -->
+ <div class="grid-container">
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Pembina" class="member-img">
+ <div class="member-role">Pembina</div>
+ <div class="member-name">Ust. Ismail</div>
+ </div>
 
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Ketua" class="member-img">
-                    <div class="member-role">Ketua</div>
-                    <div class="member-name">Ismail Syafiq</div>
-                </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Ketua" class="member-img">
+ <div class="member-role">Ketua</div>
+ <div class="member-name">Ismail Syafiq</div>
+ </div>
 
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Wakil Ketua 1" class="member-img">
-                    <div class="member-role">Wakil Ketua 1</div>
-                    <div class="member-name">Rafi Naufal Dzakwan</div>
-                </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Wakil Ketua 1" class="member-img">
+ <div class="member-role">Wakil Ketua 1</div>
+ <div class="member-name">Rafi Naufal Dzakwan</div>
+ </div>
 
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Wakil Ketua 2" class="member-img">
-                    <div class="member-role">Wakil Ketua 2</div>
-                    <div class="member-name">Rafi Putra Risnanda</div>
-                </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Wakil Ketua 2" class="member-img">
+ <div class="member-role">Wakil Ketua 2</div>
+ <div class="member-name">Rafi Putra Risnanda</div>
+ </div>
 
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Sekretaris" class="member-img">
-                    <div class="member-role">Sekretaris</div>
-                    <div class="member-name">Prabu</div>
-                </div>
-            </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Sekretaris" class="member-img">
+ <div class="member-role">Sekretaris</div>
+ <div class="member-name">Prabu</div>
+ </div>
+ </div>
 
-            <!-- Section Anggota -->
-            <h3 class="section-subtitle">Active Members (17 Members)</h3>
-            <div class="grid-container">
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 1" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 1</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 2" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 2</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 3" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 3</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 4" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 4</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 5" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 5</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 6" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 6</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 7" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 7</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 8" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 8</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 9" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 9</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 10" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 10</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 11" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 11</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 12" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 12</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 13" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 13</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 14" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 14</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 15" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 15</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 16" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 16</div>
-                </div>
-                <div class="member-card">
-                    <img src="https://via.placeholder.com/150" alt="Anggota 17" class="member-img">
-                    <div class="member-role">Anggota</div>
-                    <div class="member-name">Anggota 17</div>
-                </div>
-            </div>
-        </section>
+ <!-- Section Anggota -->
+ <h3 class="section-subtitle">Active Members (17 Members)</h3>
+ <div class="grid-container">
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 1" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 1</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 2" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 2</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 3" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 3</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 4" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 4</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 5" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 5</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 6" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 6</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 7" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 7</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 8" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 8</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 9" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 9</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 10" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 10</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 11" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 11</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 12" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 12</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 13" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 13</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 14" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 14</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 15" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 15</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 16" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 16</div>
+ </div>
+ <div class="member-card">
+ <img src="https://via.placeholder.com/150" alt="Anggota 17" class="member-img">
+ <div class="member-role">Anggota</div>
+ <div class="member-name">Anggota 17</div>
+ </div>
+ </div>
+ </section>
 
-        <!-- PROJECT PAGE -->
-        <section id="page-project" class="page">
-            <h2 class="page-title">Great Projects</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-trophy"></i>
-                    <h3>Research Team</h3>
-                    <p>Third place winner (Bronze Medal) of an international research competition.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-masks-theater"></i>
-                    <h3>Drama Team</h3>
-                    <p>Creating and performing English dramas, including our featured performance: <strong>"Bad Fate"</strong>.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-book-open"></i>
-                    <h3>Library Improvement</h3>
-                    <p>Enriching and expanding the English book collection for Thursina Boarding School students.</p>
-                </div>
-            </div>
-        </section>
+ <!-- PROJECT PAGE -->
+ <section id="page-project" class="page">
+ <h2 class="page-title">Great Projects</h2>
+ <div class="grid-container">
+ <div class="card">
+ <i class="fa-solid fa-trophy"></i>
+ <h3>Research Team</h3>
+ <p>Third place winner (Bronze Medal) of an international research competition.</p>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-masks-theater"></i>
+ <h3>Drama Team</h3>
+ <p>Creating and performing English dramas, including our featured performance: <strong>"Bad Fate"</strong>.</p>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-book-open"></i>
+ <h3>Library Improvement</h3>
+ <p>Enriching and expanding the English book collection for Thursina Boarding School students.</p>
+ </div>
+ </div>
+ </section>
 
-        <!-- ASSISTANT PAGE -->
-        <section id="page-assistant" class="page">
-            <h2 class="page-title">ECT Assistant</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #555;">Meet our automated assistant! Ask any questions regarding English Club of Thursina or request basic tenses explanations directly.</p>
-            
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-robot"></i>
-                    <h3>Interactive Bot</h3>
-                    <p>Click the chat button at the bottom-left corner to start chatting with ECT Bot in English or Indonesian.</p>
-                    <button class="btn" style="margin-top: 15px;" onclick="openChatbot()">Open Chatbot Now</button>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-comments"></i>
-                    <h3>Speaking Practice</h3>
-                    <p>Ask about ECT activities, vision, mission, schedules, and club features anytime.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-book"></i>
-                    <h3>Tenses Materials</h3>
-                    <p>Type keywords like <strong>"present tense"</strong>, <strong>"past tense"</strong>, or <strong>"future tense"</strong> to learn formulas & 6 sentence examples!</p>
-                </div>
-            </div>
-        </section>
+ <!-- ASSISTANT PAGE -->
+ <section id="page-assistant" class="page">
+ <h2 class="page-title">ECT Assistant</h2>
+ <p style="text-align: center; margin-bottom: 30px; color: #555;">Meet our automated assistant! Ask any questions regarding English Club of Thursina, learn tenses, or practice with quiz questions!</p>
+ 
+ <div class="grid-container">
+ <div class="card">
+ <i class="fa-solid fa-robot"></i>
+ <h3>Interactive Bot</h3>
+ <p>Click the chat button at the bottom-left corner to start chatting with ECT Bot in English or Indonesian.</p>
+ <button class="btn" style="margin-top: 15px;" onclick="openChatbot()">Open Chatbot Now</button>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-pen-to-square"></i>
+ <h3>Tenses Quiz</h3>
+ <p>Type <strong>"soal"</strong> or <strong>"quiz"</strong> in the chatbot to practice tenses questions and test your grammar!</p>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-book"></i>
+ <h3>Tenses Materials</h3>
+ <p>Learn Present, Past, Future, Continuous, and Perfect tenses with formulas & 6 sentence examples!</p>
+ </div>
+ </div>
+ </section>
 
-        <!-- CONTACT PAGE -->
-        <section id="page-contact" class="page">
-            <h2 class="page-title">Contact Us</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <h3>Email Address</h3>
-                    <p>novirahman689@gmail.com<br>ismail@ponpesthursina.id</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-phone"></i>
-                    <h3>Phone / WhatsApp</h3>
-                    <p>+62 878-7288-6162</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-school"></i>
-                    <h3>School Website</h3>
-                    <p><a href="http://www.ponpesthursina.id" target="_blank" style="color:var(--primary-color);">ponpesthursina.id</a></p>
-                </div>
-            </div>
-        </section>
+ <!-- CONTACT PAGE -->
+ <section id="page-contact" class="page">
+ <h2 class="page-title">Contact Us</h2>
+ <div class="grid-container">
+ <div class="card">
+ <i class="fa-solid fa-envelope"></i>
+ <h3>Email Address</h3>
+ <p>novirahman689@gmail.com<br>ismail@ponpesthursina.id</p>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-phone"></i>
+ <h3>Phone / WhatsApp</h3>
+ <p>+62 878-7288-6162</p>
+ </div>
+ <div class="card">
+ <i class="fa-solid fa-school"></i>
+ <h3>School Website</h3>
+ <p><a href="http://www.ponpesthursina.id" target="_blank" style="color:var(--primary-color);">ponpesthursina.id</a></p>
+ </div>
+ </div>
+ </section>
 
-        <!-- FEEDBACK PAGE -->
-        <section id="page-feedback" class="page">
-            <h2 class="page-title">Send Us Feedback</h2>
-            <div class="form-container">
-                <form action="https://formspree.io/f/mjyvvnby" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" name="name" id="name" required placeholder="Enter your full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" name="email" id="email" required placeholder="Enter your email address">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Feedback / Inquiry</label>
-                        <textarea name="message" id="message" rows="5" required placeholder="Write your message here..."></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Send Email</button>
-                </form>
-            </div>
-        </section>
+ <!-- FEEDBACK PAGE -->
+ <section id="page-feedback" class="page">
+ <h2 class="page-title">Send Us Feedback</h2>
+ <div class="form-container">
+ <form id="feedback-form" action="https://formspree.io/f/mjyvvnby" method="POST">
+ <div class="form-group">
+ <label for="name">Your Name</label>
+ <input type="text" name="name" id="name" required placeholder="Enter your full name">
+ </div>
+ <div class="form-group">
+ <label for="email">Your Email</label>
+ <input type="email" name="email" id="email" required placeholder="Enter your email address">
+ </div>
+ <div class="form-group">
+ <label for="message">Your Feedback / Inquiry</label>
+ <textarea name="message" id="message" rows="5" required placeholder="Write your message here..."></textarea>
+ </div>
+ <button type="submit" id="submit-btn" class="btn" style="width: 100%;">Send Email</button>
+ <div id="form-status" style="margin-top: 15px; text-align: center; font-weight: 500; display: none;"></div>
+ </form>
+ </div>
+ </section>
 
-    </main>
+ </main>
 
-    <!-- WHATSAPP FLOATING BUTTON (Kanan Bawah) -->
-    <a href="https://wa.me/6287872886162" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+ <!-- WHATSAPP FLOATING BUTTON (Kanan Bawah) -->
+ <a href="https://wa.me/6287872886162" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+ <i class="fa-brands fa-whatsapp"></i>
+ </a>
 
-    <!-- CHATBOT FLOATING WIDGET (Kiri Bawah) -->
-    <button id="chat-toggle" title="Open ECT Chatbot">💬</button>
+ <!-- CHATBOT FLOATING WIDGET (Kiri Bawah) -->
+ <button id="chat-toggle" title="Open ECT Chatbot">💬</button>
 
-    <div class="chatbox" id="chatbox">
-        <div class="chat-header">
-            <i class="fa-solid fa-robot"></i> ECT Bot
-        </div>
-        <div class="messages" id="messages">
-            <div class="msg-wrapper bot-wrapper">
-                <div class="bubble bot"><strong>ECT Bot:</strong> Hi! Ask me about English Club of Thursina or basic tenses explanations 👋 (Try typing: <strong>present tense</strong>, <strong>past tense</strong>, or <strong>future tense</strong>)</div>
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" id="input" placeholder="Type here..." autocomplete="off" />
-            <button id="send-btn">➤</button> 
-        </div>
-    </div>
+ <div class="chatbox" id="chatbox">
+ <div class="chat-header">
+ <i class="fa-solid fa-robot"></i> ECT Bot
+ </div>
+ <div class="messages" id="messages">
+ <div class="msg-wrapper bot-wrapper">
+ <div class="bubble bot"><strong>ECT Bot:</strong> Hi! Ask me about ECT, explore **tenses materials**, or type **"soal"** / **"quiz"** to get practice questions 👋</div>
+ </div>
+ </div>
+ <div class="chat-input">
+ <input type="text" id="input" placeholder="Type here..." autocomplete="off" />
+ <button id="send-btn">➤</button> 
+ </div>
+ </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 English Club of Thursina. All Rights Reserved.</p>
-    </footer>
+ <!-- FOOTER -->
+ <footer>
+ <p>&copy; 2026 English Club of Thursina. All Rights Reserved.</p>
+ </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // 1. NAVIGATION (SINGLE PAGE APPLICATION)
-        function switchPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active-page'));
+ <!-- JAVASCRIPT LOGIC -->
+ <script>
+ // 1. NAVIGATION (SINGLE PAGE APPLICATION)
+ function switchPage(pageId) {
+ const pages = document.querySelectorAll('.page');
+ pages.forEach(page => page.classList.remove('active-page'));
 
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if(targetPage) targetPage.classList.add('active-page');
+ const targetPage = document.getElementById(`page-${pageId}`);
+ if(targetPage) targetPage.classList.add('active-page');
 
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
+ const navLinks = document.querySelectorAll('.nav-link');
+ navLinks.forEach(link => link.classList.remove('active'));
 
-            const activeLink = Array.from(navLinks).find(link => 
-                link.getAttribute('onclick').includes(pageId)
-            );
-            if(activeLink) activeLink.classList.add('active');
+ const activeLink = Array.from(navLinks).find(link => 
+ link.getAttribute('onclick').includes(pageId)
+ );
+ if(activeLink) activeLink.classList.add('active');
 
-            document.querySelector('.nav-links').classList.remove('show');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+ document.querySelector('.nav-links').classList.remove('show');
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
 
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinksContainer = document.querySelector('.nav-links');
-        mobileMenu.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('show');
-        });
+ const mobileMenu = document.getElementById('mobile-menu');
+ const navLinksContainer = document.querySelector('.nav-links');
+ mobileMenu.addEventListener('click', () => {
+ navLinksContainer.classList.toggle('show');
+ });
 
-        // 2. CHATBOT WIDGET TOGGLE
-        const toggleBtn = document.getElementById("chat-toggle");
-        const chatbox = document.getElementById("chatbox");
-        const messages = document.getElementById("messages");
-        const input = document.getElementById("input");
-        const sendBtn = document.getElementById("send-btn");
+ // 2. CHATBOT WIDGET TOGGLE
+ const toggleBtn = document.getElementById("chat-toggle");
+ const chatbox = document.getElementById("chatbox");
+ const messages = document.getElementById("messages");
+ const input = document.getElementById("input");
+ const sendBtn = document.getElementById("send-btn");
 
-        function openChatbot() {
-            chatbox.style.display = "flex";
-            setTimeout(() => chatbox.classList.add("show"), 10);
-            input.focus();
-        }
+ function openChatbot() {
+ chatbox.style.display = "flex";
+ setTimeout(() => chatbox.classList.add("show"), 10);
+ input.focus();
+ }
 
-        toggleBtn.onclick = () => {
-            if (chatbox.style.display === "none" || chatbox.style.display === "") {
-                openChatbot();
-            } else {
-                chatbox.classList.remove("show");
-                setTimeout(() => chatbox.style.display = "none", 300);
-            }
-        };
+ toggleBtn.onclick = () => {
+ if (chatbox.style.display === "none" || chatbox.style.display === "") {
+ openChatbot();
+ } else {
+ chatbox.classList.remove("show");
+ setTimeout(() => chatbox.style.display = "none", 300);
+ }
+ };
 
-        // 3. KNOWLEDGE BASE (INFO ECT & PENJELASAN TENSES DENGAN RUMUS & 6 CONTOH)
-        const knowledgeID = {
-            "halo hai assalamualaikum sapa": "Halo! Selamat datang di English Club of Thursina (ECT) 👋 Ada yang bisa dibantu? Kamu bisa bertanya seputar ECT atau penjelasan tenses dasar!",
-            "ect singkatan arti kepanjangan": "ECT adalah singkatan dari English Club of Thursina.",
-            "english club thursina organisasi": "English Club of Thursina adalah organisasi sekolah yang berfokus pada pengembangan kemampuan bahasa Inggris siswa.",
-            "tahun berdiri kapan sejarah": "English Club of Thursina resmi berdiri pada bulan September 2025 sebagai wadah peningkatan kemampuan bahasa Inggris.",
-            "pembina pembimbing penanggung jawab guru": "Pembina ECT Thursina adalah Ust. Ismail dan dibantu oleh tim pengajar/mentor bahasa Inggris Thursina.",
-            "ketua pemimin president leader": "Ketua ECT saat ini dipimpin oleh Ismail Syafiq bersama jajaran pengurus aktif.",
-            "wakil sekretaris bendahara pengurus struktur": "Struktur pengurus ECT: Pembina (Ust. Ismail), Ketua (Ismail Syafiq), Wakil Ketua 1 (Rafi Naufal Dzakwan), Wakil Ketua 2 (Rafi Putra Risnanda), Sekretaris (Prabu), serta 17 anggota aktif.",
-            "visi tujuan": "Visi ECT adalah membangun komunitas belajar bahasa Inggris yang aktif, kreatif, percaya diri, dan berdaya saing global.",
-            "misi program kerja": "Misi ECT meliputi pelatihan rutin, praktik speaking/debate, persiapan lomba, serta pengembangan drama dan karya ilmiah.",
-            "manfaat fungsi untung keunggulan": "Anggota ECT dapat meningkatkan kepercayaan diri, kelancaran speaking, menambah relasi, serta berkesempatan mengikuti kompetisi tingkat nasional maupun internasional.",
-            "kegiatan acara ngapain rutinitas": "Kegiatan ECT meliputi Weekly Meeting, Speech Practice, Debate Club, Storytelling, English Drama, Research, dan Fun Games.",
-            "speech pidato public speaking": "Latihan Speech berfokus pada penyampaian pidato bahasa Inggris untuk melatih struktur argumen dan public speaking.",
-            "debate debat argumen": "Latihan Debate melatih pemikiran kritis dan penyampaian argumen secara rasional dalam bahasa Inggris.",
-            "storytelling cerita drama": "Storytelling dan Drama (seperti lakon 'Bad Fate') melatih ekspresi, intonasi, dan seni peran berbahasa Inggris.",
-            "research karya ilmiah penelitian bronze medal prestasi": "ECT memiliki Tim Research yang telah meraih Medali Perunggu (Bronze Medal) pada kompetisi penelitian tingkat internasional.",
-            "library perpustakaan buku": "Program Library Improvement berfokus memperbanyak dan merapikan koleksi literatur bahasa Inggris di perpustakaan Thursina.",
-            "anggota siapa ikut join syarat kriteria": "Seluruh siswa Thursina YBM PLN Bogor Boarding School yang memiliki semangat belajar bahasa Inggris dapat bergabung.",
-            "daftar cara registrasi rekrutmen open recruitment": "Pendaftaran dapat dilakukan pada awal semester saat Open Recruitment dibuka, atau menghubungi langsung pengurus ECT.",
-            "biaya bayar gratis": "Keanggotaan dan seluruh kegiatan internal ECT tidak dipungut biaya (Gratis) untuk siswa Thursina.",
-            "jadwal kapan latihan hari jam": "Latihan rutin diadakan berkala sesuai jadwal ekstrakurikuler/klub yang ditetapkan pengurus setiap pekannya.",
-            "lokasi dimana tempat venue": "Seluruh kegiatan rutin ECT dilaksanakan di area kampus Thursina YBM PLN Bogor Boarding School.",
-            "kontak narahubung instagram hubungi whatsapp email": "Anda bisa menghubungi via WA (+62 878-7288-6162), email (ismail@ponpesthursina.id), atau melalui menu Contact & Feedback di web ini.",
-            
-            // TENSES MATERI KNOWLEDGE BASE (PENJELASAN + RUMUS + 6 CONTOH KALIMAT)
-            "tenses dasar": "Tenses dasar terdiri dari 3 bentuk utama:\n1. **Simple Present Tense** (kebiasaan/fakta)\n2. **Simple Past Tense** (kejadian masa lalu)\n3. **Simple Future Tense** (rencana masa depan)\n\nKetik nama tenses di atas untuk melihat rumus dan 6 contoh kalimat lengkapnya!",
+ // 3. KNOWLEDGE BASE (INFO ECT, MATERI TENSES LENGKAP & BANK SOAL)
+ const knowledgeID = {
+ "halo hai assalamualaikum sapa": "Halo! Selamat datang di ECT Bot 👋 Kamu bisa bertanya tentang ECT, belajar **tenses**, atau mengetik **'soal'** untuk latihan kuis!",
+ "ect singkatan arti kepanjangan": "ECT adalah singkatan dari English Club of Thursina.",
+ "english club thursina organisasi": "English Club of Thursina adalah organisasi sekolah yang berfokus pada pengembangan kemampuan bahasa Inggris siswa.",
+ "tahun berdiri kapan sejarah": "English Club of Thursina resmi berdiri pada bulan September 2025 sebagai wadah peningkatan kemampuan bahasa Inggris.",
+ "pembina pembimbing penanggung jawab guru": "Pembina ECT Thursina adalah Ust. NoviRahman dan dibantu oleh tim pengajar/mentor bahasa Inggris Thursina.",
+ "ketua pemimin president leader": "Ketua ECT saat ini dipimpin oleh Ismail Syafiq bersama jajaran pengurus aktif.",
+ "wakil sekretaris bendahara pengurus struktur": "Struktur pengurus ECT: Pembina (Ust. NoviRahman), Ketua (Ismail Syafiq), Wakil Ketua 1 (Rafi Naufal Dzakwan), Wakil Ketua 2 (Rafi Putra Risnanda), Sekretaris (Prabu), serta 17 anggota aktif.",
+ "visi tujuan": "Visi ECT adalah membangun komunitas belajar bahasa Inggris yang aktif, kreatif, percaya diri, dan berdaya saing global.",
+ "misi program kerja": "Misi ECT meliputi pelatihan rutin, praktik speaking/debate, persiapan lomba, serta pengembangan drama dan karya ilmiah.",
+ "manfaat fungsi untung keunggulan": "Anggota ECT dapat meningkatkan kepercayaan diri, kelancaran speaking, menambah relasi, serta berkesempatan mengikuti kompetisi tingkat nasional maupun internasional.",
+ "kegiatan acara ngapain rutinitas": "Kegiatan ECT meliputi Weekly Meeting, Speech Practice, Debate Club, Storytelling, English Drama, Research, dan Fun Games.",
+ "speech pidato public speaking": "Latihan Speech berfokus pada penyampaian pidato bahasa Inggris untuk melatih struktur argumen dan public speaking.",
+ "debate debat argumen": "Latihan Debate melatih pemikiran kritis dan penyampaian argumen secara rasional dalam bahasa Inggris.",
+ "storytelling cerita drama": "Storytelling dan Drama (seperti lakon 'Bad Fate') melatih ekspresi, intonasi, dan seni peran berbahasa Inggris.",
+ "research karya ilmiah penelitian bronze medal prestasi": "ECT memiliki Tim Research yang telah meraih Medali Perunggu (Bronze Medal) pada kompetisi penelitian tingkat internasional.",
+ "library perpustakaan buku": "Program Library Improvement berfokus memperbanyak dan merapikan koleksi literatur bahasa Inggris di perpustakaan Thursina.",
+ "anggota siapa ikut join syarat kriteria": "Seluruh siswa Thursina YBM PLN Bogor Boarding School yang memiliki semangat belajar bahasa Inggris dapat bergabung.",
+ "daftar cara registrasi rekrutmen open recruitment": "Pendaftaran dapat dilakukan pada awal semester saat Open Recruitment dibuka, atau menghubungi langsung pengurus ECT.",
+ "biaya bayar gratis": "Keanggotaan dan seluruh kegiatan internal ECT tidak dipungut biaya (Gratis) untuk siswa Thursina.",
+ "jadwal kapan latihan hari jam": "Latihan rutin diadakan berkala sesuai jadwal ekstrakurikuler/klub yang ditetapkan pengurus setiap pekannya.",
+ "lokasi dimana tempat venue": "Seluruh kegiatan rutin ECT dilaksanakan di area kampus Thursina YBM PLN Bogor Boarding School.",
+ "kontak narahubung instagram hubungi whatsapp email": "Anda bisa menghubungi via WA (+62 878-7288-6162), email (ismail@ponpesthursina.id), atau melalui menu Contact & Feedback di web ini.",
 
-            "present simple present": "📘 **Simple Present Tense**\nDigunakan untuk menyatakan fakta umum atau kebiasaan sehari-hari.\n\n**Rumus:**\n(+) S + Verb-1 (-s/-es) + O\n(-) S + do/does + not + Verb-1 + O\n(?) Do/Does + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. She drinks milk every morning. *(Dia minum susu setiap pagi.)*\n2. They study English on Monday. *(Mereka belajar bahasa Inggris pada hari Senin.)*\n3. The sun rises in the east. *(Matahari terbit dari timur.)*\n4. He does not play football. *(Dia tidak bermain sepak bola.)*\n5. I do not like spicy food. *(Saya tidak suka makanan pedas.)*\n6. Do you live in Bogor? *(Apakah kamu tinggal di Bogor?)*",
+ // MATERI TENSES LENGKAP
+ "tenses grammar rumus dasar": "Pilih tenses yang ingin kamu pelajari:\n1. **Simple Present Tense**\n2. **Present Continuous Tense**\n3. **Present Perfect Tense**\n4. **Simple Past Tense**\n5. **Past Continuous Tense**\n6. **Simple Future Tense**\n7. **Future Continuous Tense**\n\nAtau ketik **'soal'** untuk mulai latihan!",
 
-            "past simple past": "📕 **Simple Past Tense**\nDigunakan untuk menyatakan kejadian yang sudah terjadi di masa lalu.\n\n**Rumus:**\n(+) S + Verb-2 + O\n(-) S + did + not + Verb-1 + O\n(?) Did + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. I visited the library yesterday. *(Saya mengunjungi perpustakaan kemarin.)*\n2. She bought a new book last night. *(Dia membeli buku baru tadi malam.)*\n3. They won the competition last month. *(Mereka memenangkan kompetisi bulan lalu.)*\n4. He did not watch the movie. *(Dia tidak menonton film tersebut.)*\n5. We did not come to the party. *(Kami tidak datang ke pesta itu.)*\n6. Did you finish your homework? *(Apakah kamu sudah menyelesaikan PR-mu?)*",
+ "present simple present": "📘 **Simple Present Tense**\nDigunakan untuk menyatakan fakta umum atau kebiasaan sehari-hari.\n\n**Rumus:**\n(+) S + Verb-1 (-s/-es) + O\n(-) S + do/does + not + Verb-1 + O\n(?) Do/Does + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. She drinks milk every morning.\n2. They study English on Monday.\n3. The sun rises in the east.\n4. He does not play football.\n5. I do not like spicy food.\n6. Do you live in Bogor?",
 
-            "future simple future": "📗 **Simple Future Tense**\nDigunakan untuk menyatakan rencana atau kejadian di masa depan.\n\n**Rumus:**\n(+) S + will + Verb-1 + O\n(-) S + will + not + Verb-1 + O\n(?) Will + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. I will join the English Club tomorrow. *(Saya akan bergabung dengan English Club besok.)*\n2. She will present her research next week. *(Dia akan mempresentasikan penelitiannya minggu depan.)*\n3. They will travel to Jakarta soon. *(Mereka akan bepergian ke Jakarta segera.)*\n4. He will not attend the meeting. *(Dia tidak akan menghadiri rapat tersebut.)*\n5. We will not give up easily. *(Kami tidak akan menyerah dengan mudah.)*\n6. Will you come to my house? *(Apakah kamu akan datang ke rumahku?)*",
+ "continuous present continuous sedang": "📘 **Present Continuous Tense**\nDigunakan untuk menyatakan kejadian yang sedang berlangsung saat ini.\n\n**Rumus:**\n(+) S + am/is/are + Verb-ing + O\n(-) S + am/is/are + not + Verb-ing + O\n(?) Am/Is/Are + S + Verb-ing + O?\n\n**6 Contoh Kalimat:**\n1. I am writing a letter right now.\n2. She is reading a novel in the library.\n3. They are playing basketball in the yard.\n4. He is not studying at the moment.\n5. We are not watching television.\n6. Are you listening to music?",
 
-            "terima kasih makasih thanks": "Sama-sama! Senang bisa membantu 😊",
-            "bye dadah duluan dadag": "Sampai jumpa lagi! Have a great day 👋"
-        };
+ "perfect present perfect telah sudah": "📘 **Present Perfect Tense**\nDigunakan untuk menyatakan kejadian yang sudah terjadi dan efeknya masih terasa saat ini.\n\n**Rumus:**\n(+) S + have/has + Verb-3 + O\n(-) S + have/has + not + Verb-3 + O\n(?) Have/Has + S + Verb-3 + O?\n\n**6 Contoh Kalimat:**\n1. I have finished my homework.\n2. She has visited Jakarta twice.\n3. They have lived here since 2020.\n4. He has not eaten lunch yet.\n5. We have not seen that movie.\n6. Have you washed your hands?",
 
-        const knowledgeEN = {
-            "hello hi greeting hey": "Hello! Welcome to English Club of Thursina (ECT) 👋 Feel free to ask about our club or basic tenses explanations!",
-            "ect stand meaning full name": "ECT stands for English Club of Thursina.",
-            "established history founded": "English Club of Thursina was established in September 2025 to foster students' English skills.",
-            "advisor teacher supervisor pembina": "The main advisor of ECT is Ust. Novirahman, supported by English Club of Thursina.",
-            "leader chairperson president ketua": "ECT is led by Ismail Syafiq along with the executive committee.",
-            "structure committee board member": "Our board structure includes Advisor (Ust. Novirahman), Chairperson (Ismail Syafiq), Vice Chairperson 1 (Rafi Naufal Dzakwan), Vice Chairperson 2 (Rafi Putra Risnanda), Secretary (Prabu), and 17 active members.",
-            "vision purpose objective": "Our vision is to build an active, creative, confident, and globally competitive English-speaking community.",
-            "mission program focus": "Our mission includes routine practice, public speaking development, contest preparation, and literature projects.",
-            "benefit advantage skills why join": "Joining ECT improves your speaking confidence, critical thinking, vocabulary, and opens opportunities for international competitions.",
-            "activities agenda game routine": "ECT activities include Weekly Meetings, Speech, Debates, Storytelling, English Drama, Research, and Interactive Games.",
-            "speech public speaking": "Speech practice trains members to deliver public speeches with clarity and structured logic.",
-            "debate argument critical thinking": "Debate sessions build critical thinking and formal argumentation skills in English.",
-            "drama storytelling performance": "Drama and Storytelling (including our play 'Bad Fate') enhance expression, pronunciation, and stage presence.",
-            "research bronze medal achievement award": "Our Research Team successfully won a Bronze Medal in an international research competition.",
-            "library book collection": "The Library Improvement project focuses on expanding English literature and reading materials for students.",
-            "member join student eligibility requirement": "ECT membership is open to all students of Thursina Boarding School who are eager to learn English.",
-            "register sign recruitment open how to join": "You can register during the official Open Recruitment period or contact an ECT committee member.",
-            "fee cost free price": "ECT membership and routine activities are free of charge for Thursina students.",
-            "schedule when day training time": "Routine sessions take place according to the weekly club schedule set by the committee.",
-            "location where place venue": "All ECT regular activities take place within the Thursina YBM PLN Bogor Boarding School campus.",
-            "contact instagram social media whatsapp email": "Reach us via WhatsApp (+62 878-7288-6162), email (ismail@ponpesthursina.id), or via the Contact page.",
+ "past simple past lampau": "📕 **Simple Past Tense**\nDigunakan untuk menyatakan kejadian yang terjadi di masa lalu.\n\n**Rumus:**\n(+) S + Verb-2 + O\n(-) S + did + not + Verb-1 + O\n(?) Did + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. I visited the library yesterday.\n2. She bought a new book last night.\n3. They won the competition last month.\n4. He did not watch the movie.\n5. We did not come to the party.\n6. Did you finish your homework?",
 
-            "thanks thank you appreciate": "You're welcome! Happy to help! 😊",
-            "bye goodbye see you": "Goodbye! Have a wonderful day 👋"
-        };
+ "past continuous sedang lampau": "📕 **Past Continuous Tense**\nDigunakan untuk menyatakan kejadian yang sedang berlangsung pada waktu spesifik di masa lalu.\n\n**Rumus:**\n(+) S + was/were + Verb-ing + O\n(-) S + was/were + not + Verb-ing + O\n(?) Was/Were + S + Verb-ing + O?\n\n**6 Contoh Kalimat:**\n1. I was studying when he called.\n2. She was cooking at 7 PM yesterday.\n3. They were playing football yesterday afternoon.\n4. He was not sleeping at 10 PM.\n5. We were not listening to the announcement.\n6. Were you sleeping when I arrived?",
 
-        // 4. LOGIKA PENCARIAN CHATBOT (MATCHING ENGINE)
-        function findResponse(userMsg) {
-            const query = userMsg.toLowerCase().trim();
-            
-            // Cek Bahasa Indonesia
-            for (let keys in knowledgeID) {
-                const keywordList = keys.split(" ");
-                if (keywordList.some(kw => query.includes(kw))) {
-                    return knowledgeID[keys];
-                }
-            }
+ "future simple future depan": "📗 **Simple Future Tense**\nDigunakan untuk menyatakan rencana atau kejadian di masa depan.\n\n**Rumus:**\n(+) S + will + Verb-1 + O\n(-) S + will + not + Verb-1 + O\n(?) Will + S + Verb-1 + O?\n\n**6 Contoh Kalimat:**\n1. I will join the English Club tomorrow.\n2. She will present her research next week.\n3. They will travel to Jakarta soon.\n4. He will not attend the meeting.\n5. We will not give up easily.\n6. Will you come to my house?",
 
-            // Cek Bahasa Inggris
-            for (let keys in knowledgeEN) {
-                const keywordList = keys.split(" ");
-                if (keywordList.some(kw => query.includes(kw))) {
-                    return knowledgeEN[keys];
-                }
-            }
+ "future continuous sedang depan": "📗 **Future Continuous Tense**\nDigunakan untuk menyatakan kejadian yang akan sedang berlangsung pada waktu tertentu di masa depan.\n\n**Rumus:**\n(+) S + will + be + Verb-ing + O\n(-) S + will + not + be + Verb-ing + O\n(?) Will + S + be + Verb-ing + O?\n\n**6 Contoh Kalimat:**\n1. I will be studying at 8 PM tomorrow.\n2. She will be waiting for you at the station.\n3. They will be playing match at this time next week.\n4. He will not be working tonight.\n5. We will not be traveling this Sunday.\n6. Will you be using the computer later?",
 
-            return "Maaf, saya belum memahami pertanyaan tersebut. Coba tanyakan seputar ECT atau ketik nama tenses seperti **'present tense'**, **'past tense'**, atau **'future tense'**!";
-        }
+ // BANK SOAL & KUIS INTERAKTIF
+ "soal kuis quiz latihan latihan-tenses": "✏️ **Latihan Soal Tenses**\nPilih soal yang ingin kamu kerjakan:\n\n1. **Soal 1 (Simple Present)**: She ___ (go) to school every day.\n2. **Soal 2 (Simple Past)**: They ___ (visit) Museum yesterday.\n3. **Soal 3 (Simple Future)**: We ___ (join) the club tomorrow.\n4. **Soal 4 (Present Continuous)**: Look! He ___ (play) football now.\n5. **Soal 5 (Present Perfect)**: I ___ (finish) my task already.\n\nKetik **'kunci 1'**, **'kunci 2'**, dst. untuk melihat kunci jawaban dan pembahasannya!",
 
-        function appendMessage(sender, text, isUser) {
-            const wrapper = document.createElement("div");
-            wrapper.className = `msg-wrapper ${isUser ? 'user-wrapper' : 'bot-wrapper'}`;
+ "kunci 1 jawaban 1": "✅ **Jawaban Soal 1:** **goes**\n*Pembahasan:* Menggunakan **Simple Present Tense** karena menyatakan kebiasaan ('every day'). Subjek 'She' menggunakan Verb-1 + -es (go ➡️ goes).",
+ "kunci 2 jawaban 2": "✅ **Jawaban Soal 2:** **visited**\n*Pembahasan:* Menggunakan **Simple Past Tense** karena ada keterangan waktu masa lalu ('yesterday'). Verb-2 dari visit adalah visited.",
+ "kunci 3 jawaban 3": "✅ **Jawaban Soal 3:** **will join**\n*Pembahasan:* Menggunakan **Simple Future Tense** karena terjadi besok ('tomorrow'). Rumusnya: will + Verb-1.",
+ "kunci 4 jawaban 4": "✅ **Jawaban Soal 4:** **is playing**\n*Pembahasan:* Menggunakan **Present Continuous Tense** karena aksi sedang terjadi saat ini ('now'). Subjek 'He' menggunakan to be 'is' + Verb-ing.",
+ "kunci 5 jawaban 5": "✅ **Jawaban Soal 5:** **have finished**\n*Pembahasan:* Menggunakan **Present Perfect Tense** karena pekerjaan sudah selesai ('already'). Subjek 'I' menggunakan 'have' + Verb-3.",
 
-            const bubble = document.createElement("div");
-            bubble.className = `bubble ${isUser ? 'user' : 'bot'}`;
-            // Mengubah format bold (**) dan line break (\n) agar rapi di bubble chat
-            let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            formattedText = formattedText.replace(/\n/g, '<br>');
+ "terima kasih makasih thanks": "Sama-sama! Senang bisa membantu 😊 Selamat belajar!",
+ "bye dadah duluan dadag": "Sampai jumpa lagi! Have a great day 👋"
+ };
 
-            bubble.innerHTML = `<strong>${sender}:</strong><br>${formattedText}`;
+ const knowledgeEN = {
+ "hello hi greeting hey": "Hello! Welcome to ECT Bot 👋 Feel free to ask about ECT, explore **tenses**, or type **'quiz'** to practice questions!",
+ "ect stand meaning full name": "ECT stands for English Club of Thursina.",
+ "established history founded": "English Club of Thursina was established in September 2025 to foster students' English skills.",
+ "advisor teacher supervisor pembina": "The main advisor of ECT is Ust. NoviRahman, supported by English Club of Thursina.",
+ "leader chairperson president ketua": "ECT is led by Ismail Syafiq along with the executive committee.",
+ "structure committee board member": "Our board structure includes Advisor (Ust. NoviRahman), Chairperson (Ismail Syafiq), Vice Chairperson 1 (Rafi Naufal Dzakwan), Vice Chairperson 2 (Rafi Putra Risnanda), Secretary (Prabu), and 17 active members.",
+ "thanks thank you appreciate": "You're welcome! Happy to help! 😊",
+ "bye goodbye see you": "Goodbye! Have a wonderful day 👋"
+ };
 
-            wrapper.appendChild(bubble);
-            messages.appendChild(wrapper);
-            messages.scrollTop = messages.scrollHeight;
-        }
+ // 4. LOGIKA PENCARIAN CHATBOT
+ function findResponse(userMsg) {
+ const query = userMsg.toLowerCase().trim();
+ 
+ for (let keys in knowledgeID) {
+ const keywordList = keys.split(" ");
+ if (keywordList.some(kw => query.includes(kw))) {
+ return knowledgeID[keys];
+ }
+ }
 
-        function handleSend() {
-            const text = input.value.trim();
-            if (!text) return;
+ for (let keys in knowledgeEN) {
+ const keywordList = keys.split(" ");
+ if (keywordList.some(kw => query.includes(kw))) {
+ return knowledgeEN[keys];
+ }
+ }
 
-            appendMessage("You", text, true);
-            input.value = "";
+ return "Maaf, saya belum memahami pertanyaan tersebut. Coba ketik **'tenses'** untuk materi grammar atau **'soal'** untuk latihan kuis!";
+ }
 
-            setTimeout(() => {
-                const botReply = findResponse(text);
-                appendMessage("ECT Bot", botReply, false);
-            }, 300);
-        }
+ function appendMessage(sender, text, isUser) {
+ const wrapper = document.createElement("div");
+ wrapper.className = `msg-wrapper ${isUser ? 'user-wrapper' : 'bot-wrapper'}`;
 
-        sendBtn.onclick = handleSend;
-        input.onkeypress = (e) => {
-            if (e.key === "Enter") handleSend();
-        };
-    </script>
+ const bubble = document.createElement("div");
+ bubble.className = `bubble ${isUser ? 'user' : 'bot'}`;
+ let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+ formattedText = formattedText.replace(/\n/g, '<br>');
+
+ bubble.innerHTML = `<strong>${sender}:</strong><br>${formattedText}`;
+
+ wrapper.appendChild(bubble);
+ messages.appendChild(wrapper);
+ messages.scrollTop = messages.scrollHeight;
+ }
+
+ function handleSend() {
+ const text = input.value.trim();
+ if (!text) return;
+
+ appendMessage("You", text, true);
+ input.value = "";
+
+ setTimeout(() => {
+ const botReply = findResponse(text);
+ appendMessage("ECT Bot", botReply, false);
+ }, 300);
+ }
+
+ sendBtn.onclick = handleSend;
+ input.onkeypress = (e) => {
+ if (e.key === "Enter") handleSend();
+ };
+
+ // 5. HANDLER FORM FEEDBACK (AJAX / FETCH API FOR FORMSPREE)
+ const feedbackForm = document.getElementById('feedback-form');
+ const submitBtn = document.getElementById('submit-btn');
+ const formStatus = document.getElementById('form-status');
+
+ if (feedbackForm) {
+ feedbackForm.addEventListener('submit', async function(e) {
+ e.preventDefault(); // Mencegah perpindahan halaman
+
+ submitBtn.disabled = true;
+ submitBtn.innerText = 'Sending...';
+ formStatus.style.display = 'none';
+
+ const formData = new FormData(this);
+
+ try {
+ const response = await fetch(this.action, {
+ method: this.method,
+ body: formData,
+ headers: {
+ 'Accept': 'application/json'
+ }
+ });
+
+ if (response.ok) {
+ formStatus.style.display = 'block';
+ formStatus.style.color = '#198754';
+ formStatus.innerText = 'Thank you! Your feedback has been sent successfully.';
+ feedbackForm.reset();
+ } else {
+ const data = await response.json();
+ formStatus.style.display = 'block';
+ formStatus.style.color = '#dc3545';
+ if (Object.hasOwn(data, 'errors')) {
+ formStatus.innerText = data["errors"].map(error => error["message"]).join(", ");
+ } else {
+ formStatus.innerText = 'Oops! There was a problem submitting your form.';
+ }
+ }
+ } catch (error) {
+ formStatus.style.display = 'block';
+ formStatus.style.color = '#dc3545';
+ formStatus.innerText = 'Oops! Network error. Please try again later.';
+ } finally {
+ submitBtn.disabled = false;
+ submitBtn.innerText = 'Send Email';
+ }
+ });
+ }
+ </script>
 </body>
 </html>
